@@ -1,0 +1,11 @@
+# Ignore shipped binaries in the Git tree (use GitHub Releases).
+*.exe
+*.dll
+*.so
+*.zip
+*.tar.gz
+*.tgz
+Thumbs.db
+.DS_Store
+__pycache__/
+*.pyc

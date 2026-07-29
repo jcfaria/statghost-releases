@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>STATghost — Manual</title>
+<style>
+  :root {
+    --ink: #1c1917;
+    --muted: #57534e;
+    --paper: #fafaf9;
+    --card: #ffffff;
+    --line: #e7e5e4;
+    --accent: #3d8b6e;
+    --arm: #c4983c;
+    --kill: #a84646;
+    --idle: #5a8c58;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: var(--ink);
+    background:
+      radial-gradient(1200px 600px at 10% -10%, #e8f2ec 0%, transparent 55%),
+      radial-gradient(900px 500px at 100% 0%, #f3efe6 0%, transparent 50%),
+      var(--paper);
+    line-height: 1.55;
+  }
+  .wrap { max-width: 42rem; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+  header { margin-bottom: 2rem; }
+  .brand {
+    font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); font-weight: 600; margin: 0 0 0.5rem;
+  }
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem); font-weight: 700;
+    margin: 0 0 0.4rem; letter-spacing: -0.02em;
+  }
+  .lead { color: var(--muted); font-size: 1.05rem; margin: 0; max-width: 34rem; }
+  .lights { display: flex; gap: 0.45rem; margin: 1.25rem 0 0; }
+  .lights i {
+    width: 0.65rem; height: 0.65rem; border-radius: 50%; display: block;
+  }
+  .lights .g { background: var(--idle); }
+  .lights .a { background: var(--arm); }
+  .lights .r { background: var(--kill); }
+  section {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 0.75rem; padding: 1.15rem 1.25rem 1.25rem;
+    margin: 0.85rem 0; box-shadow: 0 1px 0 rgba(28,25,23,0.03);
+  }
+  h2 {
+    font-size: 0.95rem; margin: 0 0 0.65rem; letter-spacing: 0.02em;
+    text-transform: uppercase; color: var(--accent);
+  }
+  ol, ul { margin: 0; padding-left: 1.15rem; }
+  li { margin: 0.28rem 0; }
+  kbd, code {
+    font-family: "Cascadia Mono", Consolas, monospace;
+    font-size: 0.86em; background: #f5f5f4; border: 1px solid var(--line);
+    border-radius: 0.3rem; padding: 0.05rem 0.35rem;
+  }
+  .note {
+    border-left: 3px solid var(--arm); padding: 0.55rem 0.85rem;
+    background: #fbf7ef; border-radius: 0 0.4rem 0.4rem 0;
+    color: var(--muted); font-size: 0.95rem; margin-top: 0.75rem;
+  }
+  footer {
+    margin-top: 2rem; color: var(--muted); font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <p class="brand">STATghost · v0.4.1</p>
+      <h1>Quick manual</h1>
+      <p class="lead">Copy → local R → text and plot. A sniper, not an IDE.</p>
+      <div class="lights" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div>
+    </header>
+
+    <section>
+      <h2>30 seconds</h2>
+      <ol>
+        <li>Unzip so <code>statghost.exe</code> and <code>statghost_rhost.exe</code> stay in the same folder.</li>
+        <li>Run <code>statghost.exe</code> (toolbar, top-right).</li>
+        <li>Click <strong>Idle</strong> → <strong>Armed</strong>.</li>
+        <li>In another app: select R code and press <kbd>Ctrl+C</kbd>.</li>
+        <li>Read the result under <strong>Console</strong> / <strong>Plot</strong>.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Traffic lights</h2>
+      <ul>
+        <li><strong>Set</strong> — preferences.</li>
+        <li><strong>Idle / Armed</strong> — clipboard sniper on/off.</li>
+        <li><strong>Kill</strong> — stop <em>this app’s</em> R engine (see below).</li>
+        <li><strong>Panel</strong> — show/hide the output window.</li>
+        <li><strong>Clear</strong> — clear console and plot.</li>
+      </ul>
+      <p class="note">Click the <strong>icon</strong> → Help / About / Quit. Drag the bar by the background.</p>
+    </section>
+
+    <section>
+      <h2>Rterm.exe vs R.dll</h2>
+      <ul>
+        <li>Under <strong>Set → R session → Use</strong> you pick how STATghost talks to R.</li>
+        <li><strong>Rterm.exe</strong> (default) — classic pipes to a child <code>Rterm.exe</code>. Simple and familiar.</li>
+        <li><strong>R.dll</strong> — embedded R via a small sidecar <code>statghost_rhost.exe</code>.
+            The GUI never loads <code>R.dll</code>; only the sidecar does. If R crashes,
+            STATghost itself can stay up.</li>
+        <li>Also set <strong>R home</strong> (or leave empty = newest R on this PC).</li>
+        <li>Status bar shows the live engine and version, e.g.
+            <code>R.dll · 4.5.0</code> or <code>Rterm.exe · devel</code> (or <code>R: idle</code>).</li>
+      </ul>
+      <p class="note">For <strong>R.dll</strong>, keep <code>statghost_rhost.exe</code> beside
+        <code>statghost.exe</code>. On Linux/macOS the same idea uses <code>libR.so</code> /
+        <code>libR.dylib</code> (later builds).</p>
+    </section>
+
+    <section>
+      <h2>Kill</h2>
+      <ul>
+        <li><strong>Kill</strong> ends only STATghost’s current engine child —
+            either <code>Rterm.exe</code> or <code>statghost_rhost.exe</code> — not RStudio,
+            not other terminals, not unrelated R processes.</li>
+        <li>It works even mid-eval (hard terminate). The toolbar returns to green Idle;
+            click <strong>Arm</strong> to start a fresh session.</li>
+        <li>Changing R home / Use while a session is running kills that session first.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Clipboard</h2>
+      <ul>
+        <li>When Armed, eval runs only if clipboard <em>text</em> changes.</li>
+        <li>Copying the same selection again does not re-run (dedup).</li>
+        <li>Meta notices (session started, killed, …) go to the console meta stream;
+            status bar shows engine badge + short tips.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Panel</h2>
+      <ul>
+        <li><kbd>Ctrl+Tab</kbd> — Console ↔ Plot.</li>
+        <li>After eval, focus is <strong>Auto</strong> by default: <strong>Plot</strong> if this
+            eval drew graphics, else <strong>Console</strong>
+            (Set → Plot panel to force always Console or always Plot).</li>
+        <li>Plot: zoom and history <strong>← / →</strong>; optional PDF.</li>
+        <li>Bookmarks: <kbd>Ctrl+Shift+0..9</kbd> / <kbd>Ctrl+0..9</kbd>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Settings</h2>
+      <ul>
+        <li><strong>Appearance</strong> — opacity, toolbar orientation, theme.</li>
+        <li><strong>R session</strong> — R home, Browse, Use {Rterm.exe | R.dll}.</li>
+        <li><strong>Hotkey</strong> — Capture and Arm chords.</li>
+        <li><strong>Editor</strong> — font, highlighter, view options.</li>
+        <li><strong>Plot panel</strong> — history, PDF, after-eval focus.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Hotkeys</h2>
+      <ul>
+        <li><kbd>Ctrl+Alt+R</kbd> — Arm / Idle.</li>
+        <li><kbd>Ctrl+C</kbd> — capture via system Copy (when Armed).</li>
+      </ul>
+      <p class="note">All chords are configurable under Set → Hotkey.</p>
+    </section>
+
+    <section>
+      <h2>Troubleshooting</h2>
+      <ul>
+        <li>No output → Armed? New clipboard text? Status badge not <code>R: idle</code>?</li>
+        <li>No plot → did this chunk draw (<code>plot</code>, <code>abline</code>, …)?
+            Text-only chunks switch back to Console.</li>
+        <li>R.dll won’t start → is <code>statghost_rhost.exe</code> next to the app?
+            Is <code>R.dll</code> under the chosen R home? Or switch Use to Rterm.exe.</li>
+        <li>Stuck eval → press <strong>Kill</strong>, then Arm again.</li>
+        <li>Odd titles like <code>â€”</code> → use a current build (UTF-8 source);
+            prefer the Win64 zip that includes both EXEs.</li>
+      </ul>
+    </section>
+
+    <footer>STATghost v0.4.1 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
+  </div>
+</body>
+</html>
