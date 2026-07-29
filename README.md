@@ -39,3 +39,12 @@ Source development happens in a separate private repo until the project is ready
 
 Public **distribution** channel. Version tags match product milestones (`v0.x.y`).  
 Feedback welcome via GitHub Issues on this repo.
+
+## Author / Maintainer
+
+Started and maintained by:
+
+**Faria, J. C.**  
+Universidade Estadual de Santa Cruz — UESC  
+Departamento de Ciências Exatas — DCEX  
+Ilhéus — Bahia — Brazil
