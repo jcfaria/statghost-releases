@@ -1,10 +1,12 @@
-# Sample Julia scripts — STATghost
+# Sample Julia scripts — STATghost (VP-STATG-16..18 / D22 — planned engine)
 
 Progressive complexity for a **stateful** Julia sniper (Arm → Ctrl+C), not
 one-shot `julia script.jl`. Valid today under system **`julia`** (lab: 1.12.6).
 
-**Premise:** system Julia on PATH. Stdlib-first; **Plots.jl** /
+**Premise (D22):** system Julia on PATH. Stdlib-first; **Plots.jl** /
 **Distributions.jl** / **DifferentialEquations.jl** optional (SKIP if missing).
+
+Planning: `w_todo/w_pt/br/07_sap_julia_repl.txt` · `08_cpr_julia_repl.txt`
 
 | File | Plot? | Topic / TF |
 |------|-------|------------|
@@ -49,6 +51,8 @@ Quick check (stdlib scripts; skips optional pkgs):
 ```text
 julia -e "include(joinpath(\"sample\",\"Julia\",\"01_hello.jl\"))"
 ```
+
+STATghost `--tf-samples` Julia lane lands with VP-STATG-16 CODE.
 
 ## Style
 

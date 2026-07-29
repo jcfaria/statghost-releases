@@ -38,6 +38,7 @@ Source development happens in a separate private repo until the project is ready
 ## Status
 
 Public **distribution** channel. Version tags match product milestones (`v0.x.y`).  
+Latest Win64 test build: **v0.4.3**. Linux gtk2 asset still **v0.4.2** until the next lab package.  
 Feedback welcome via GitHub Issues on this repo.
 
 ## Author / Maintainer

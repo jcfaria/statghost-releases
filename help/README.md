@@ -1,6 +1,6 @@
-# Help
+﻿# Help
 
-- [statghost_help.html](statghost_help.html) — HTML user guide  
-- [statghost_manual.pdf](statghost_manual.pdf) — PDF manual  
+- `statghost_help.html` — quick manual (also in the Win64 zip / brand Help menu)
+- `statghost_manual.pdf` — printable PDF (same content)
 
-Open the HTML file in a browser, or use **Help** from the STATghost brand menu when running a build that ships the file beside the executable.
+Version: **v0.4.3**

@@ -1,8 +1,8 @@
-# Sample Python scripts — STATghost
+# Sample Python scripts — STATghost (VP-STATG-13..15 / v0.3.5+)
 
 Progressive complexity for the **stateful** sniper (Arm → Ctrl+C), not one-shot `python file.py`.
 
-**Premise:** system Python on PATH (`python` / `python3` / `py -3`). Stdlib-first; **matplotlib** for plots; optional **numpy**.
+**Premise (D21):** system Python on PATH (`python` / `python3` / `py -3`). Stdlib-first; **matplotlib** for plots; optional **numpy**.
 
 | File | Plot? | Topic / TF |
 |------|-------|------------|
