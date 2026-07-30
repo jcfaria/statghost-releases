@@ -15,4 +15,5 @@ z = (data .- μ) ./ σ
 
 # Step C — z-scores have unit sample sd
 @assert abs(std(z; corrected = true) - 1) < 1e-12
+
 println("PASS 26_stateful_chain mean_z=$(mean(z))")

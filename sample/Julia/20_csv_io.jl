@@ -19,4 +19,5 @@ mat = data[1]
 μx = mean(mat[:, 1])
 @assert μx == 3.0
 rm(path; force = true)
+
 println("PASS 20_csv_io μx=$μx")

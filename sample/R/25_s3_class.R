@@ -57,3 +57,4 @@ plot.statg_point <- function(x, ...) {
 }
 
 plot(p)
+message("PASS 25_s3_class")

@@ -28,3 +28,4 @@ stripchart(diff,
            ylab = "after - before")
 abline(h = 0, lty = 2, col = "gray40")
 abline(h = mean(diff), col = 2, lwd = 2)
+message("PASS 16_paired_ttest")

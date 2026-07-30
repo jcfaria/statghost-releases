@@ -1,5 +1,5 @@
 # Objective: Binomial GLM (logistic) with predicted probability curve.
-# Blank lines = sniper chunks.
+# Blank lines = sniper chunks. Overlays stay with the plot() chunk.
 
 set.seed(17)
 n <- 120
@@ -27,11 +27,10 @@ plot(x,
      main = "sample 17 — logistic GLM",
      xlab = "x",
      ylab = "P(y=1)")
-
 lines(xg,
       pred,
       lwd = 2,
       col = 2)
-
 abline(h = 0.5,
        lty = 3)
+message("PASS 17_glm_logistic")

@@ -1,18 +1,19 @@
-# Objective: Wide console output stress — matrix / data.frame / by() summaries.
+# Objective: Wide console output stress — compact matrix / data.frame / by().
 
 set.seed(26)
-m <- matrix(round(rnorm(12 * 8), 3),
-            nrow = 12,
-            dimnames = list(paste0("r", 1:12),
-                            paste0("c", 1:8)))
+m <- matrix(round(rnorm(6 * 4), 3),
+            nrow = 6,
+            dimnames = list(paste0("r", 1:6),
+                            paste0("c", 1:4)))
 m
 
-# wide data.frame print
+# compact data.frame print
 df <- as.data.frame(m)
-df$group <- gl(3, 4, labels = c("A", "B", "C"))
+df$group <- gl(3, 2, labels = c("A", "B", "C"))
 df
 
 # summary chain
-by(df[, 1:8],
+by(df[, 1:4],
    df$group,
    function(d) round(colMeans(d), 3))
+message("PASS 26_wide_output")

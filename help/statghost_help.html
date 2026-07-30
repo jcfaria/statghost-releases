@@ -74,7 +74,7 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="brand">STATghost · v0.4.3</p>
+      <p class="brand">STATghost · v0.4.5</p>
       <h1>Quick manual</h1>
       <p class="lead">Copy → local R / Python / Julia → text and plot. A sniper, not an IDE.</p>
       <div class="lights" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div>
@@ -89,7 +89,8 @@
         <li>Under <strong>Set → Session</strong>, pick <strong>R</strong>, <strong>Python</strong>, or
             <strong>Julia</strong> (and path if needed).</li>
         <li>Click <strong>Idle</strong> → <strong>Armed</strong>.</li>
-        <li>In another app: select code and press <kbd>Ctrl+C</kbd>.</li>
+        <li>In another app: select code and press <kbd>Ctrl+C</kbd> — or use the
+            optional Capture hotkey with <em>no</em> selection (see Clipboard).</li>
         <li>Read the result under <strong>Console</strong> / <strong>Plot</strong>.</li>
       </ol>
     </section>
@@ -114,7 +115,9 @@
         <li><strong>R:</strong> home (empty = newest); Use {Rterm.exe | R.dll}.
             R.dll uses sidecar <code>statghost_rhost.exe</code> (GUI never loads R.dll).</li>
         <li><strong>Python:</strong> interpreter path; Options — Matplotlib window, prefetch imports.</li>
-        <li><strong>Julia:</strong> path (empty = discover / juliaup).</li>
+        <li><strong>Julia:</strong> path (empty = discover / juliaup); Options — show GR
+            window when relevant. Plot panel PNGs use the same high-res size class as
+            R/Python (Plots.jl <code>savefig</code> of <code>current()</code>).</li>
         <li><strong>R Options:</strong> show <code>rgl</code> window when relevant.</li>
         <li>Status badge examples: <code>R.dll · 4.5.0</code>, <code>Python · 3.12</code>,
             <code>Julia · 1.11</code>, or idle.</li>
@@ -136,6 +139,14 @@
       <ul>
         <li>When Armed, eval runs only if clipboard <em>text</em> changes.</li>
         <li>Copying the same selection again does not re-run (dedup).</li>
+        <li><strong>Current line without selection:</strong> under
+            <strong>Set → Hotkey → Capture</strong>, record an optional alternative
+            chord. That hotkey asks the foreground app to <strong>Copy</strong>, then
+            STATghost evaluates. In many editors (VS Code, Notepad++, RStudio,
+            CudaText, …), Copy with no selection sends the <strong>current line</strong>
+            — step a script line by line without selecting. If the source app does
+            nothing without a selection, select text as usual (or use <kbd>Ctrl+C</kbd>
+            when Armed).</li>
         <li>Console always scrolls to the latest line, even with the Plot tab active.</li>
         <li>Meta notices go to the console meta stream; status bar shows engine badge + tips.</li>
       </ul>
@@ -144,11 +155,18 @@
     <section>
       <h2>Panel</h2>
       <ul>
-        <li><kbd>Ctrl+Tab</kbd> — Console ↔ Plot.</li>
+        <li><kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> — Console ↔ Plot.
+            The active tab highlight follows the page after eval focus
+            (Auto / Console / Plot).
+            Echo prompts: R <code>&gt;</code>/<code>+</code>,
+            Python <code>&gt;&gt;&gt;</code>/<code>...</code>,
+            Julia <code>julia&gt;</code>/<code>julia|</code>
+            (continuation is classroom-style).</li>
         <li>After eval, focus is <strong>Auto</strong> by default: <strong>Plot</strong> if this
             eval drew graphics, else <strong>Console</strong>
             (Set → Plot panel to force Console or Plot).</li>
-        <li>Plot: zoom and history <strong>← / →</strong>; optional PDF; <strong>Size</strong> matches pane (default on).</li>
+        <li>Plot: high-res PNG (R, Python Matplotlib, Julia Plots.jl); zoom and
+            history <strong>← / →</strong>; optional PDF (R); <strong>Size</strong> matches pane (default on).</li>
         <li>Bookmarks: <kbd>Ctrl+Shift+0..9</kbd> / <kbd>Ctrl+0..9</kbd>.</li>
       </ul>
     </section>
@@ -157,11 +175,17 @@
       <h2>Settings</h2>
       <ul>
         <li><strong>Appearance</strong> — opacity, toolbar orientation, theme.</li>
-        <li><strong>Session</strong> — Path | Options per language.</li>
-        <li><strong>Hotkey</strong> — Capture / Arm / Focus via <strong>Record</strong> and Clear|Reset.
-            Capture default stays <kbd>Ctrl+C</kbd>; optional alternative chord.
-            Alt+Space is rejected (Windows system menu).</li>
-        <li><strong>Editor</strong> — font, highlighter, view options.</li>
+        <li><strong>Session</strong> — Path | Options per language;
+            <kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> cycle R|Python|Julia
+            (does not change Active Use radios).</li>
+        <li><strong>Hotkey</strong> — Capture / Arm / Focus / Clear console via
+            <strong>Record</strong> and Clear|Reset.
+            Capture default stays <kbd>Ctrl+C</kbd>; optional alternative chord
+            (Copy in source → eval; often current line with no selection).
+            <kbd>Ctrl+L</kbd> clears Console text only; toolbar Clear still wipes
+            console + plot. Alt+Space is rejected (Windows system menu).</li>
+        <li><strong>Editor</strong> — font, highlighter, view options;
+            <kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> cycle Font|Syntax.</li>
         <li><strong>Plot panel</strong> — history, PDF, after-eval focus, Size.</li>
       </ul>
     </section>
@@ -171,8 +195,28 @@
       <ul>
         <li><kbd>Ctrl+Alt+R</kbd> — Arm / Idle (default; Record under Set).</li>
         <li><kbd>Ctrl+C</kbd> — capture via system Copy (when Armed).</li>
-        <li>Brand menu <strong>OS global hotkeys</strong> — when off, Arm / alt-capture / focus
-            chords are unregistered (<code>HK: off</code>). Ctrl+C sniper while Armed still works.</li>
+        <li>Optional Capture alternative (Record under Set) — Copy in the foreground
+            app, then eval (current line without selection in many editors).</li>
+        <li><kbd>Ctrl+Alt+F</kbd> — Focus mode toggle (default).</li>
+        <li><kbd>Ctrl+L</kbd> — Clear Console text only (default; R console).</li>
+        <li>Brand menu <strong>OS global hotkeys</strong> — when off, Arm / alt-capture /
+            focus / clear chords are unregistered (<code>HK: off</code>). Ctrl+C sniper
+            while Armed still works.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Automated checks (lab)</h2>
+      <ul>
+        <li><strong>Smoke:</strong> <code>statghost.exe --smoke</code>
+            → <code>statg5_report.txt</code> (<code>RESULT=BOK</code>).</li>
+        <li><strong>SR / SP / SJ / ST:</strong> whole-file samples —
+            <code>--sr</code> (R <code>rterm</code>+<code>rdll</code>),
+            <code>--sp</code> (Python),
+            <code>--sj</code> (Julia),
+            <code>--st</code> / <code>--tf-samples</code> (all)
+            → <code>statg_sr|sp|sj|st_report.txt</code>.
+            Or: <code>powershell -File src/tf_samples.ps1 [-Mode ST|SR|SP|SJ]</code>.</li>
       </ul>
     </section>
 
@@ -189,7 +233,7 @@
       </ul>
     </section>
 
-    <footer>STATghost v0.4.3 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
+    <footer>STATghost v0.4.5 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
   </div>
 </body>
 </html>

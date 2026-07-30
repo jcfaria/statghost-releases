@@ -31,3 +31,4 @@ par(mfrow = c(2, 2),
     mar = c(4, 4, 2.5, 1))
 plot(fit)
 par(mfrow = c(1, 1))
+message("PASS 30_anova_diagnostics")

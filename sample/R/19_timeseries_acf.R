@@ -18,3 +18,4 @@ par(mfrow = c(1, 2),
 acf(tsy, main = "ACF")
 pacf(tsy, main = "PACF")
 par(mfrow = c(1, 1))
+message("PASS 19_timeseries_acf")

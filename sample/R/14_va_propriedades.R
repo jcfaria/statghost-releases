@@ -74,3 +74,4 @@ round(var(Y + Z), 2) ==
 
 round(var(Y - Z), 5) ==
   round(var(Y) + var(Z) - 2 * cov(Y, Z), 5)
+message("PASS 14_va_propriedades")

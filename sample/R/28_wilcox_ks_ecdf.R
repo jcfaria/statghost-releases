@@ -24,3 +24,4 @@ legend("bottomright",
        col = c(2, 4),
        lwd = 2,
        bty = "n")
+message("PASS 28_wilcox_ks_ecdf")

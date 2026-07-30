@@ -1,5 +1,6 @@
 # Objective: Distinguish models linear in parameters (lm) from nonlinear (nls).
-# Uses BOD and a self-starting asymptotic model. Blank lines = sniper chunks.
+# Uses BOD and a self-starting asymptotic model. Blank lines = sniper chunks
+# (one figure per chunk; overlays stay with their plot).
 
 # check linearity via derivatives w.r.t. parameters
 fl <- expression(a + b * x)                 # degree-I polynomial
@@ -47,11 +48,6 @@ plot(eval(expression(-a * exp(x / -b))) ~ x, type = "b")
 str(BOD)
 BOD
 
-with(BOD,
-     plot(demand ~ Time,
-          xlim = c(0, 8),
-          ylim = c(0, 20)))
-
 m_1 <- nls(demand ~ a * (1 - exp(-exp(b) * Time)),
            data = BOD,
            start = c(a = 20,
@@ -62,15 +58,19 @@ summary(m_1)
 coef(m_1)
 m_1
 
-with(BOD,
-     points(predict(m_1) ~ Time,
-            col = "red",
-            pch = 19))
-
-with(BOD,
-     lines(spline(predict(m_1) ~ Time, n = 1e3),
-           col = "red",
-           lwd = 2))
+# one figure: data + fitted points/curve (overlays with plot)
+with(BOD, {
+  plot(demand ~ Time,
+       xlim = c(0, 8),
+       ylim = c(0, 20),
+       main = "sample 12 — BOD nls")
+  points(predict(m_1) ~ Time,
+         col = "red",
+         pch = 19)
+  lines(spline(predict(m_1) ~ Time, n = 200),
+        col = "red",
+        lwd = 2)
+})
 
 par(oldpar)
 
@@ -81,3 +81,4 @@ fm3 <- nls(demand ~ SSasympOrig(Time, a, b),
 summary(fm3)
 coef(fm3)
 fm3
+message("PASS 12_rl_linear_vs_nlinear")

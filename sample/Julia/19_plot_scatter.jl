@@ -11,9 +11,14 @@ try
     plt = scatter(x, y;
                   legend = false,
                   title = "scatter",
-                  ms = 3,
+                  ms = 8,
+                  color = :darkorange,
+                  markerstrokewidth = 1,
+                  markerstrokecolor = :black,
                   show = false)
-    plot!(plt, x -> 0.5x, extrema(x)...; lw = 2)
+    plot!(plt, x -> 0.5x, extrema(x)...;
+          lw = 3.5,
+          color = :navy)
     println("PASS 19_plot_scatter")
 catch e
     println("SKIP 19_plot_scatter (Pkg): ", e)

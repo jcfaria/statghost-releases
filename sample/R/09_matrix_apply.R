@@ -18,3 +18,4 @@ apply(A,
       mean)
 
 eigen(crossprod(A), only.values = TRUE)$values
+message("PASS 09_matrix_apply")

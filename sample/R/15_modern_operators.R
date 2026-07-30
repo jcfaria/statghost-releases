@@ -45,3 +45,5 @@ mtcars %$% cor(mpg, wt)
 x <- 1:5
 x %<>% magrittr::multiply_by(10)
 x
+message("PASS 15_modern_operators")
+

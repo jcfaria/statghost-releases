@@ -29,3 +29,4 @@ axis(2,
      at = 1:p,
      labels = rev(colnames(C)),
      las = 1)
+message("PASS 23_cor_heatmap")

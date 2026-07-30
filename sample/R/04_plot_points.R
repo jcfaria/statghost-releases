@@ -8,3 +8,4 @@ plot(x,
      y,
      main = "sample 04 — points",
      pch = 16)
+message("PASS 04_plot_points")

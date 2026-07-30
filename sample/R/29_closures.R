@@ -1,5 +1,5 @@
 # Objective: Closures with <<- and lexical scope; plot factory outputs.
-# Blank lines = sniper chunks.
+# Blank lines = sniper chunks. Overlay lines/legend stay with plot().
 
 # counter factory (mutable state via <<-)
 make_counter <- function(start = 0L) {
@@ -38,15 +38,14 @@ plot(xs,
      main = "sample 29 — closures f2 / f5",
      xlab = "x",
      ylab = "f(x)")
-
 lines(xs,
       y5,
       type = "b",
       pch = 17,
       col = 4)
-
 legend("topleft",
        legend = c("k=2", "k=5"),
        col = c(2, 4),
        pch = c(16, 17),
        bty = "n")
+message("PASS 29_closures")

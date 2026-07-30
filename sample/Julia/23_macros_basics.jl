@@ -16,4 +16,5 @@ n = 0
 
 # Step C — @show for REPL-style inspection
 @show n
+
 println("PASS 23_macros_basics")

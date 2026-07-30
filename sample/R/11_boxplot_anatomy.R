@@ -256,3 +256,4 @@ abline(h = c(out.low, q[1], q[2], q[3], out.upp),
        col = "red")
 
 par(oldpar)
+message("PASS 11_boxplot_anatomy")

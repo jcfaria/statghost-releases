@@ -39,3 +39,4 @@ plot(density(z),
 rug(z)
 
 par(mfrow = c(1, 1))
+message("PASS 18_mfrow_panels")

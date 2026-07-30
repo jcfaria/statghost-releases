@@ -18,7 +18,10 @@ Layout:
 3. Blank lines = intentional sniper **chunks** (not padding inside compounds).
 4. Readable calls (R: break at commas if **>2** args; also `abline`/`lines`).
 5. Progressive clarity over golf; optional deps print `SKIP …`.
-6. Update that language’s README table.
+6. End with a visible **`PASS <stem>`** (or intentional **`FAIL …`** / **`SKIP …`**).
+7. Multi-figure scripts: blank line **between** figures; keep `abline`/`lines`/
+   `points` in the **same** chunk as their `plot()`/`hist()` (no orphan overlays).
+8. Update that language’s README table.
 
 Detail: `.cursor/rules/statghost-didactic-repl.mdc` · D23 in `w_todo`.
 
@@ -26,13 +29,15 @@ Copy any file with **Arm** on. Prefer **one chunk at a time**. Compound blocks
 need a closing blank in a normal REPL — STATghost sends one at end of clipboard
 when needed.
 
-Automated L1 TF (R|Python):
+Automated sample-matrix smoke (**SR** R / **SP** Python / **SJ** Julia / **ST** all):
 
 ```text
 powershell -File src/build.ps1
-powershell -File src/tf_samples.ps1
+powershell -File src/tf_samples.ps1              # ST
+powershell -File src/tf_samples.ps1 -Mode SJ     # Julia only
 ```
 
-Report: `src/_out/statg_tf_samples.txt` (`RESULT=BOK` / `FAIL`).
+Reports: `src/_out/statg_sr|sp|sj|st_report.txt` (`RESULT=BOK` / `FAIL`).
+Alias for ST: `--tf-samples`.
 
 See each folder’s table for plots / deps.

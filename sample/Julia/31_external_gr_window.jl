@@ -13,6 +13,8 @@ else
              sin.(x);
              title = "STATghost — external GR",
              legend = false,
+             lw = 3.5,
+             color = :dodgerblue,
              show = true)
         display(current())
         println("PASS 31_external_gr_window — GKS QtTerm should be open")

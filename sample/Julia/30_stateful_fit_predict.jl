@@ -42,13 +42,17 @@ try
     ENV["GKSwstype"] = "100"
     using Plots
     scatter(xs, ys;
-            ms = 3,
-            alpha = 0.7,
+            ms = 8,
+            color = :darkorange,
+            markerstrokewidth = 1,
+            markerstrokecolor = :black,
+            alpha = 0.85,
             label = "data",
             title = "sample 30 — fit / predict",
             show = false)
     plot!(xs, yhat;
-          lw = 2,
+          lw = 3.5,
+          color = :navy,
           label = "fit",
           show = false)
     println("PASS 30_plot")

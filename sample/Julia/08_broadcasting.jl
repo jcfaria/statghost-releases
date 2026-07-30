@@ -14,4 +14,5 @@ y = sq .+ 1
 A = [1.0 2.0; 3.0 4.0]
 s = sum(sin.(A))
 @assert s > 0
+
 println("PASS 08_broadcasting")

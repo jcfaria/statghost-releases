@@ -1,31 +1,27 @@
-# Objective: Overlay challenge — base plot, then lines/points in later chunks.
-# Eval whole file, or chunk1 then chunk2 to exercise .statg.replay.
+# Objective: Base plot with lowess + highlight points (one figure, one chunk).
+# Keep overlays with plot() so progressive Arm never hits "plot.new has not
+# been called yet". (Product still supports .statg.replay when chunks split.)
 # Blank lines = sniper chunks.
 
 set.seed(27)
 x <- 1:40
 y <- sin(x / 4) + rnorm(40, sd = 0.25)
 
-# chunk: canvas
 plot(x,
      y,
      pch = 16,
      col = "gray50",
-     main = "sample 27 — overlay replay",
+     main = "sample 27 — overlay",
      xlab = "x",
      ylab = "y")
-
-# chunk: overlays (needs previous device display list)
 lines(lowess(x, y),
       col = 2,
       lwd = 2)
-
 points(x[c(5, 20, 35)],
        y[c(5, 20, 35)],
        pch = 1,
        cex = 2,
        col = 4)
-
 legend("topright",
        legend = c("data", "lowess", "highlights"),
        col = c("gray50", 2, 4),
@@ -33,3 +29,4 @@ legend("topright",
        lty = c(NA, 1, NA),
        lwd = c(NA, 2, NA),
        bty = "n")
+message("PASS 27_overlay_replay")

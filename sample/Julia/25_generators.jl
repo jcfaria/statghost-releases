@@ -7,4 +7,5 @@ v = collect(g)
 
 s = sum(i for i in 1:100)
 @assert s == 5050
+
 println("PASS 25_generators")

@@ -11,3 +11,4 @@ data.frame(x = round(x, 3),
 
 cor(x, y)
 summary(y)
+message("PASS 02_vectors")

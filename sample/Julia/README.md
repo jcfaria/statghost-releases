@@ -23,24 +23,27 @@ Planning: `w_todo/w_pt/br/07_sap_julia_repl.txt` · `08_cpr_julia_repl.txt`
 | `11_multiple_dispatch.jl` | no | methods |
 | `12_exceptions.jl` | no | intentional error (TF) |
 | `13_modules_using.jl` | no | `using Statistics` |
-| `14_statistics_base.jl` | no | std / quantile / cor |
+| `14_statistics_base.jl` | yes* | std / quantile / cor (+ hist) |
 | `15_linear_algebra.jl` | no | `\` / eigen |
 | `16_random_seed.jl` | no | seeded RNG |
 | `17_plot_line.jl` | yes* | Plots.jl line (optional) |
 | `18_plot_hist.jl` | yes* | Plots.jl hist (optional) |
 | `19_plot_scatter.jl` | yes* | Plots.jl scatter (optional) |
 | `20_csv_io.jl` | no | DelimitedFiles |
-| `21_monte_carlo.jl` | no | π estimate (compute ↑) |
+| `21_monte_carlo.jl` | no | π estimate (small n) |
 | `22_parametric_types.jl` | no | `Box{T}` |
 | `23_macros_basics.jl` | no | tiny macro |
-| `24_threads_map.jl` | no | `@threads` fill |
+| `24_threads_map.jl` | no | `@threads` fill (small n) |
 | `25_generators.jl` | no | generator expr |
 | `26_stateful_chain.jl` | no | z-score chain |
-| `27_least_squares.jl` | no | OLS via LinearAlgebra |
+| `27_least_squares.jl` | yes* | OLS + optional resid plot |
 | `28_distributions_opt.jl` | no* | Distributions.jl (optional) |
 | `29_ode_opt.jl` | no* | DifferentialEquations (optional) |
 | `30_stateful_fit_predict.jl` | yes* | fit → predict (+ optional plot) |
 | `31_external_gr_window.jl` | ext* | **GKS QtTerm** (Settings: Show GR; SKIP if headless) |
+| `32_plot_bar.jl` | yes* | Plots.jl bar |
+| `33_plot_boxplot.jl` | yes* | Plots.jl group means (bar) |
+| `34_plot_heatmap.jl` | yes* | Plots.jl heatmap |
 
 \* optional package — prints `SKIP …` when missing (not a hard fail).
 `ext*` = external interactive window (not Plot panel); needs the matching
@@ -52,7 +55,7 @@ Quick check (stdlib scripts; skips optional pkgs):
 julia -e "include(joinpath(\"sample\",\"Julia\",\"01_hello.jl\"))"
 ```
 
-STATghost `--tf-samples` Julia lane lands with VP-STATG-16 CODE.
+STATghost **SJ** (`--sj`) runs the Julia lane alone; **ST** (`--st` / `--tf-samples`) includes R rterm+rdll and Python too.
 
 ## Style
 

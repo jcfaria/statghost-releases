@@ -10,4 +10,5 @@ x = A \ b
 
 evals = eigvals(Symmetric(A))
 @assert all(evals .> 0)
+
 println("PASS 15_linear_algebra")

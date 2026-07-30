@@ -10,4 +10,5 @@ dist(p::Point) = hypot(p.x, p.y)
 
 p = Point(3.0, 4.0)
 @assert dist(p) == 5.0
+
 println("PASS 10_structs dist=$(dist(p))")

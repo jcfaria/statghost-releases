@@ -120,3 +120,4 @@ g_ftc(f,
       x1 = 160,
       x2 = 180,
       lim_x = c(150, 190))
+message("PASS 13_teorema_fundamental_calculo")

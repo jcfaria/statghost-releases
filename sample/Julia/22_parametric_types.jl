@@ -10,4 +10,5 @@ b = Box{Int}(42)
 
 b2 = Box("hi")
 @assert b2.value == "hi"
+
 println("PASS 22_parametric_types")

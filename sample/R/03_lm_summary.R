@@ -13,3 +13,4 @@ fit <- lm(y ~ x)
 
 summary(fit)
 coef(fit)
+message("PASS 03_lm_summary")

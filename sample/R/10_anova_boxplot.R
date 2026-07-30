@@ -24,3 +24,4 @@ boxplot(resp ~ trt,
         main = "sample 10 — ANOVA boxplot",
         xlab = "treatment",
         ylab = "response")
+message("PASS 10_anova_boxplot")

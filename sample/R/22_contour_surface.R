@@ -23,3 +23,4 @@ filled.contour(x,
                main = "sample 22 — filled contour",
                xlab = "x",
                ylab = "y")
+message("PASS 22_contour_surface")

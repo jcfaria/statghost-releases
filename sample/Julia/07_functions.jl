@@ -9,4 +9,5 @@ f(x) = 2x + 1
 
 @assert addsq(3, 4) == 25
 @assert f(10) == 21
+
 println("PASS 07_functions")

@@ -7,3 +7,4 @@ hist(rnorm(200),
      border = "white",
      main = "sample 06 — hist",
      xlab = "z")
+message("PASS 06_plot_hist")

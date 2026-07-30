@@ -16,3 +16,4 @@ tab
 prop.table(tab, 1)
 
 chisq.test(tab)
+message("PASS 08_factors_table")

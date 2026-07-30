@@ -6,10 +6,14 @@ try
     using Plots
     using Random
     Random.seed!(7)
-    histogram(randn(500);
-              bins = 25,
+    histogram(randn(80);
+              bins = 15,
               legend = false,
               title = "N(0,1)",
+              color = :crimson,
+              fillalpha = 0.88,
+              linecolor = :darkred,
+              linewidth = 1.5,
               show = false)
     println("PASS 18_plot_hist")
 catch e

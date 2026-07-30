@@ -8,4 +8,5 @@ println("hello from STATghost Julia")
 randn(5)
 
 @assert 1 + 1 == 2
+
 println("PASS 01_hello")

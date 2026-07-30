@@ -9,4 +9,5 @@ catch e
     e isa ErrorException
 end
 @assert caught
+
 println("PASS 12_exceptions")

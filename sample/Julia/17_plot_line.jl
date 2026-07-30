@@ -8,6 +8,8 @@ try
     plot(x, sin.(x);
          title = "sin",
          legend = false,
+         lw = 3.5,
+         color = :dodgerblue,
          show = false)
     println("PASS 17_plot_line")
 catch e

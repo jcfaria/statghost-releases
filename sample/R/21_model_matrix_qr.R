@@ -1,5 +1,5 @@
 # Objective: Design matrix rank via QR, then residual-vs-fitted diagnostics.
-# Blank lines = sniper chunks.
+# Blank lines = sniper chunks. Overlays stay with plot().
 
 set.seed(21)
 n <- 80
@@ -20,18 +20,17 @@ c(n = nrow(MM),
   p = ncol(MM),
   rank = qr(MM)$rank)
 
-# residual vs fitted
+# residual vs fitted (+ zero line and smoother)
 plot(fitted(fit),
      resid(fit),
      pch = 16,
      main = "sample 21 — resid vs fitted",
      xlab = "fitted",
      ylab = "resid")
-
 abline(h = 0,
        lty = 2,
        col = "gray40")
-
 lines(lowess(fitted(fit), resid(fit)),
       col = 2,
       lwd = 2)
+message("PASS 21_model_matrix_qr")
