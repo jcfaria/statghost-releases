@@ -4,7 +4,7 @@ Download the latest **Windows x64** zip from:
 
 https://github.com/jcfaria/statghost-releases/releases
 
-Current build: **v0.4.5** — `statghost-v0.4.5-win64.zip`
+Current build: **v0.4.6** — `statghost-v0.4.6-win64.zip`
 
 Typical contents of the zip:
 
