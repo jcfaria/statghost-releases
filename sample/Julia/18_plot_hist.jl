@@ -1,15 +1,23 @@
 # Objective: Optional Plots.jl histogram of seeded normals.
 # No display(): STATghost captures PNG via savefig; avoid GKS QtTerm.
 
+using Random
+using Statistics
+
+Random.seed!(7)
+z = randn(80)
+println("n=", length(z), " mean=", round(mean(z); digits = 4),
+        " std=", round(std(z); digits = 4))
+
+# --- GRAPHIC OUTPUT ---
+
 try
     ENV["GKSwstype"] = "100"
     using Plots
-    using Random
-    Random.seed!(7)
-    histogram(randn(80);
+    histogram(z;
               bins = 15,
               legend = false,
-              title = "N(0,1)",
+              title = "sample 18 — N(0,1)",
               color = :crimson,
               fillalpha = 0.88,
               linecolor = :darkred,

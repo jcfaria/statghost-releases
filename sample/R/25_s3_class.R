@@ -28,11 +28,6 @@ print.summary.statg_point <- function(x, ...) {
   invisible(x)
 }
 
-# use: construct, print, summarize
-p <- statg_point(3, 4, "A")
-p
-summary(p)
-
 # plot method — point, label, radius segment
 plot.statg_point <- function(x, ...) {
   plot(x$x,
@@ -55,6 +50,13 @@ plot.statg_point <- function(x, ...) {
            lty = 2,
            col = "gray40")
 }
+
+# use: construct, print, summarize
+p <- statg_point(3, 4, "A")
+p
+summary(p)
+
+# --- GRAPHIC OUTPUT ---
 
 plot(p)
 message("PASS 25_s3_class")

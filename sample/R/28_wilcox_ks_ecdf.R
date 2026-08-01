@@ -7,6 +7,8 @@ b <- rnorm(40, 0.55, 1.1)
 wilcox.test(a, b)
 ks.test(a, b)
 
+# --- GRAPHIC OUTPUT ---
+
 plot(ecdf(a),
      main = "sample 28 — ecdf A vs B",
      xlab = "x",

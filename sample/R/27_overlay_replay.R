@@ -7,6 +7,13 @@ set.seed(27)
 x <- 1:40
 y <- sin(x / 4) + rnorm(40, sd = 0.25)
 
+# text prelude
+c(n = length(x),
+  mean_y = mean(y),
+  sd_y = sd(y))
+
+# --- GRAPHIC OUTPUT ---
+
 plot(x,
      y,
      pch = 16,

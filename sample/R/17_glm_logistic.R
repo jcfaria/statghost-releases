@@ -19,6 +19,8 @@ pred <- predict(fit,
                 newdata = data.frame(x = xg),
                 type = "response")
 
+# --- GRAPHIC OUTPUT ---
+
 plot(x,
      y,
      pch = 16,

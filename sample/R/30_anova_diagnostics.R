@@ -18,6 +18,8 @@ fit <- aov(y ~ g, data = d)
 summary(fit)
 TukeyHSD(fit)
 
+# --- GRAPHIC OUTPUT ---
+
 # boxplot
 boxplot(y ~ g,
         data = d,
@@ -26,9 +28,12 @@ boxplot(y ~ g,
         xlab = "group",
         ylab = "y")
 
-# diagnostics (2x2)
+# diagnostics (2x2) — oma[3] >= 1 so plot.lm draws sub.caption once (outer)
+oldpar <- par(no.readonly = TRUE)
 par(mfrow = c(2, 2),
-    mar = c(4, 4, 2.5, 1))
-plot(fit)
-par(mfrow = c(1, 1))
+    mar = c(4, 4, 2.5, 1),
+    oma = c(0, 0, 2, 0))
+plot(fit,
+     sub.caption = "sample 30 — aov diagnostics")
+par(oldpar)
 message("PASS 30_anova_diagnostics")

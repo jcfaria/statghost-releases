@@ -16,6 +16,14 @@ f <- function(u, v) {
 }
 z <- outer(x, y, f)
 
+# text prelude
+c(nx = length(x),
+  ny = length(y),
+  z_min = min(z),
+  z_max = max(z))
+
+# --- GRAPHIC OUTPUT ---
+
 filled.contour(x,
                y,
                z,

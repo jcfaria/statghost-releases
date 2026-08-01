@@ -18,8 +18,12 @@ t.test(after,
 d <- mean(after - before) / sd(after - before)
 c(cohen_d = d, mean_diff = mean(after - before))
 
-# stripchart of differences
 diff <- after - before
+summary(diff)
+
+# --- GRAPHIC OUTPUT ---
+
+# stripchart of differences
 stripchart(diff,
            method = "jitter",
            pch = 16,

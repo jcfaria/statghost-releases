@@ -74,7 +74,7 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="brand">STATghost · v0.4.6</p>
+      <p class="brand">STATghost · v0.4.7</p>
       <h1>Quick manual</h1>
       <p class="lead">Copy → local R / Python / Julia → text and plot. A sniper, not an IDE.</p>
       <div class="lights" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div>
@@ -140,7 +140,7 @@
         <li>When Armed, eval runs only if clipboard <em>text</em> changes.</li>
         <li>Copying the same selection again does not re-run (dedup).</li>
         <li><strong>Current line without selection:</strong> under
-            <strong>Set → Hotkey → Capture</strong>, record an optional alternative
+            <strong>Set → Hotkeys → Capture</strong>, record an optional alternative
             chord. That hotkey asks the foreground app to <strong>Copy</strong>, then
             STATghost evaluates. In many editors (VS Code, Notepad++, RStudio,
             CudaText, …), Copy with no selection sends the <strong>current line</strong>
@@ -155,18 +155,36 @@
     <section>
       <h2>Panel</h2>
       <ul>
-        <li><kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> — Console ↔ Plot.
+        <li><strong>Console</strong> — read-only <strong>ATSynEdit</strong> with Cuda
+            lexers from the <code>lexer/</code> folder beside the EXE (R / Python / Julia).
+            <kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> — Console ↔ Plot.
             The active tab highlight follows the page after eval focus
             (Auto / Console / Plot).
             Echo prompts: R <code>&gt;</code>/<code>+</code>,
             Python <code>&gt;&gt;&gt;</code>/<code>...</code>,
             Julia <code>julia&gt;</code>/<code>julia|</code>
-            (continuation is classroom-style).</li>
+            (continuation is classroom-style).
+            Under the Console: small tweaks only inside an echoed <strong>input</strong>
+            chunk (prompt locked; not a free editor), then <kbd>Ctrl+Enter</kbd> to re-eval
+            (Settings → Shortcuts; Capture stays <kbd>Ctrl+C</kbd> when Armed).
+            <kbd>C+Up</kbd>/<kbd>C+Down</kbd> (hold letter C, not Ctrl) jump previous/next
+            input cell.</li>
+        <li><strong>Chrome (Separados | Unidos)</strong> — <strong>Unite/Split</strong>
+            button on the tab bar (rightmost). <strong>Separados</strong> (default):
+            floating traffic bar + panel; lights only on the float (panel shows the
+            mode toggle). <strong>Unidos</strong>: one window — strip on the tab bar
+            (brand | Set | Arm | Kill | Clear); floating bar hidden while the panel
+            is open. Horizontal magnet: shared left edge; vertical: tops aligned,
+            rail to the left of the panel.</li>
         <li>After eval, focus is <strong>Auto</strong> by default: <strong>Plot</strong> if this
             eval drew graphics, else <strong>Console</strong>
             (Set → Behavior to force Console, Plot, or return to source).</li>
         <li>Plot: high-res PNG (R, Python Matplotlib, Julia Plots.jl); zoom and
-            history <strong>← / →</strong>; optional PDF (R); <strong>Size</strong> matches pane (default on).</li>
+            history <strong>← / →</strong>; optional PDF (R); <strong>Size</strong> matches pane (default on)
+            and PNG DPI slider (soft green → dark blue, default 288) shared by
+            TImage and AT Gaps.
+            Set → Plot panel → Display chooses <strong>Lazarus TImage</strong>
+            (default) or <strong>ATSynEdit Gaps</strong>; switch anytime.</li>
         <li>Bookmarks: <kbd>Ctrl+Shift+0..9</kbd> / <kbd>Ctrl+0..9</kbd>.</li>
       </ul>
     </section>
@@ -175,34 +193,55 @@
       <h2>Settings</h2>
       <ul>
         <li><strong>Appearance</strong> — opacity, toolbar orientation, theme.</li>
-        <li><strong>Behavior</strong> — after-eval focus (Auto / Console / Plot / source).</li>
+        <li><strong>Behavior</strong> — after-eval focus (Auto / Console / Plot / source);
+            Console scroll after eval (Middle / Top / Bottom).</li>
         <li><strong>Session</strong> — Path | Options per language;
             <kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> cycle R|Python|Julia
             (does not change Active Use radios).</li>
-        <li><strong>Hotkey</strong> — Capture / Arm / Focus / Clear console via
+        <li><strong>Hotkeys</strong> — OS global: Capture / Arm / Focus / Clear console via
             <strong>Record</strong> and Clear|Reset.
             Capture default stays <kbd>Ctrl+C</kbd>; optional alternative chord
             (Copy in source → eval; often current line with no selection).
             <kbd>Ctrl+L</kbd> clears Console text only; toolbar Clear still wipes
             console + plot. Alt+Space is rejected (Windows system menu).</li>
-        <li><strong>Editor</strong> — font, highlighter, view options;
+        <li><strong>Shortcuts</strong> — Console-local (not OS RegisterHotKey):
+            <kbd>Ctrl+Enter</kbd> re-evals the input cell at the caret;
+            <kbd>C+Up</kbd>/<kbd>C+Down</kbd> (hold letter C, not Ctrl) jump previous/next
+            input cell (both configurable).</li>
+        <li><strong>Editor</strong> — font, highlighter, view options
+            (Settings preview may still use SynEdit; live Console uses ATSynEdit
+            + <code>lexer/</code>).
+            Under Syntax → Console: chrome <strong>Moldura (frame)</strong>
+            (default) or <strong>Zebrado (zebra)</strong>; optional frame colour
+            (theme or custom). Moldura outlines echoed input only.
             <kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> cycle Font|Syntax.</li>
-        <li><strong>Plot panel</strong> — history, PDF, Size.</li>
+        <li><strong>Plot panel</strong> — Display (TImage | AT Gaps), history, PDF, Size
+            (match pane + PNG DPI slider).</li>
       </ul>
     </section>
 
     <section>
       <h2>Hotkeys</h2>
       <ul>
-        <li><kbd>Ctrl+Alt+R</kbd> — Arm / Idle (default; Record under Set).</li>
+        <li><kbd>Ctrl+Alt+R</kbd> — Arm / Idle (default; Record under Set → Hotkeys).</li>
         <li><kbd>Ctrl+C</kbd> — capture via system Copy (when Armed).</li>
-        <li>Optional Capture alternative (Record under Set) — Copy in the foreground
+        <li>Optional Capture alternative (Record under Set → Hotkeys) — Copy in the foreground
             app, then eval (current line without selection in many editors).</li>
         <li><kbd>Ctrl+Alt+F</kbd> — Focus mode toggle (default).</li>
         <li><kbd>Ctrl+L</kbd> — Clear Console text only (default; R console).</li>
         <li>Brand menu <strong>OS global hotkeys</strong> — when off, Arm / alt-capture /
             focus / clear chords are unregistered (<code>HK: off</code>). Ctrl+C sniper
             while Armed still works.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Shortcuts (Console)</h2>
+      <p>Local to the Console panel (not OS RegisterHotKey). Set → Shortcuts.</p>
+      <ul>
+        <li><kbd>Ctrl+Enter</kbd> — re-eval the input cell at the caret.</li>
+        <li><kbd>C+Up</kbd> / <kbd>C+Down</kbd> — previous / next input cell
+            (hold letter <code>C</code>, not Ctrl — keeps Ctrl+arrows for scroll).</li>
       </ul>
     </section>
 
@@ -218,6 +257,12 @@
             <code>--st</code> / <code>--tf-samples</code> (all)
             → <code>statg_sr|sp|sj|st_report.txt</code>.
             Or: <code>powershell -File src/tf_samples.ps1 [-Mode ST|SR|SP|SJ]</code>.</li>
+        <li><strong>Dev smokes (SRD|SPD|SJD|STD):</strong> random ~20% of scripts per
+            lane (<code>--srd</code>…<code>--std</code>). Prefer these while iterating.</li>
+        <li><strong>BENCH:</strong> same OLS lesson in all four environments
+            (Rterm.exe | R.dll | Python | Julia) —
+            <code>--bench</code> → <code>w_log/benchmark.txt</code>;
+            <code>powershell -File benchmark/run_bench.ps1</code>.</li>
       </ul>
     </section>
 
@@ -234,7 +279,7 @@
       </ul>
     </section>
 
-    <footer>STATghost v0.4.6 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
+    <footer>STATghost v0.4.7 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
   </div>
 </body>
 </html>

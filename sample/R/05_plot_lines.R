@@ -8,11 +8,18 @@ y <- 2 + 0.7 * x + rnorm(20, sd = 2.5)
 # one deliberate outlier
 y[14] <- 4
 
+# text prelude — fit slope before drawing
+fit <- lm(y ~ x)
+coef(fit)
+summary(fit)$r.squared
+
+# --- GRAPHIC OUTPUT ---
+
 plot(x,
      y,
      pch = 16,
      main = "sample 05 — lines")
-abline(lm(y ~ x),
+abline(fit,
        col = "red",
        lwd = 2)
 abline(a = 0,

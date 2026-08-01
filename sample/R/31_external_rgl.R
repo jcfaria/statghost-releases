@@ -2,6 +2,20 @@
 # Needs: package rgl + Settings → Session → R → Show RGL window, then Arm.
 # With the option off (default), prints SKIP (TF-safe). Blank lines = sniper chunks.
 
+set.seed(31)
+n <- 200L
+x <- rnorm(n)
+y <- rnorm(n)
+z <- x + y + rnorm(n, sd = 0.3)
+
+# text prelude — cloud summary (runs even when graphics SKIP)
+c(n = n,
+  mean_z = mean(z),
+  cor_xz = cor(x, z),
+  cor_yz = cor(y, z))
+
+# --- GRAPHIC OUTPUT ---
+
 # package guard
 if (!requireNamespace("rgl", quietly = TRUE)) {
   message('SKIP 31_external_rgl (install.packages("rgl"))')
@@ -18,12 +32,6 @@ if (requireNamespace("rgl", quietly = TRUE) &&
 if (requireNamespace("rgl", quietly = TRUE) &&
     !isTRUE(getOption("rgl.useNULL", FALSE)) &&
     !identical(toupper(Sys.getenv("RGL_USE_NULL", "")), "TRUE")) {
-  set.seed(31)
-  n <- 200L
-  x <- rnorm(n)
-  y <- rnorm(n)
-  z <- x + y + rnorm(n, sd = 0.3)
-
   rgl::open3d()
   rgl::plot3d(x,
               y,
@@ -33,6 +41,6 @@ if (requireNamespace("rgl", quietly = TRUE) &&
               xlab = "x",
               ylab = "y",
               zlab = "z")
-  rgl::title3d(main = "STATghost — external RGL")
+  rgl::title3d(main = "sample 31 — external RGL")
   message("PASS 31_external_rgl — external OpenGL window should be open")
 }

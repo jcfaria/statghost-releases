@@ -24,10 +24,13 @@ f2 <- factory(2)
 f5 <- factory(5)
 c(f2(10), f5(10))
 
-# plot both closures on the same canvas
+# evaluate both closures on a grid (text)
 xs <- 0:10
 y2 <- vapply(xs, f2, numeric(1))
 y5 <- vapply(xs, f5, numeric(1))
+rbind(y2 = y2, y5 = y5)
+
+# --- GRAPHIC OUTPUT ---
 
 plot(xs,
      y2,

@@ -7,15 +7,25 @@ tsy <- ts(y,
           frequency = 12,
           start = c(2015, 1))
 
+# text prelude
+summary(tsy)
+c(start = start(tsy)[1],
+  frequency = frequency(tsy),
+  n = length(tsy))
+
+# --- GRAPHIC OUTPUT ---
+
 # overview
 plot(tsy,
      main = "sample 19 — seasonal series",
      ylab = "y")
 
 # ACF / PACF (second chunk → new plot; history ←/→)
+
+oldpar <- par(no.readonly = TRUE)
 par(mfrow = c(1, 2),
-    mar = c(4, 4, 2.5, 1))
-acf(tsy, main = "ACF")
-pacf(tsy, main = "PACF")
-par(mfrow = c(1, 1))
+    mar = c(4, 4, 3.5, 1))
+acf(tsy, main = "sample 19 — ACF")
+pacf(tsy, main = "sample 19 — PACF")
+par(oldpar)
 message("PASS 19_timeseries_acf")

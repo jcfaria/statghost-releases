@@ -11,15 +11,22 @@
 
 import matplotlib
 
-# backend guard (Agg → SKIP; Tk/Qt → external window)
+# text prelude — backend name before any draw
 _be = matplotlib.get_backend().lower()
+print("matplotlib_backend=", matplotlib.get_backend())
+
+xs = list(range(0, 40))
+ys = [((x - 20) ** 2) / 100.0 for x in xs]
+print("n=", len(xs), "y_min=", min(ys), "y_max=", max(ys))
+
+# --- GRAPHIC OUTPUT ---
+
+# backend guard (Agg → SKIP; Tk/Qt → external window)
 if "agg" in _be and "tk" not in _be and "qt" not in _be:
     print("SKIP 31_external_mpl_window (enable Settings → Show matplotlib window, then Arm)")
 else:
     import matplotlib.pyplot as plt
     # parabola demo for the external window
-    xs = list(range(0, 40))
-    ys = [((x - 20) ** 2) / 100.0 for x in xs]
     fig, ax = plt.subplots()
     ax.plot(
         xs,
@@ -27,7 +34,7 @@ else:
         color="darkorange",
         linewidth=2,
     )
-    ax.set_title("STATghost — external matplotlib")
+    ax.set_title("sample 31 — external matplotlib")
     ax.set_xlabel("x")
     ax.set_ylabel("y")
     fig.tight_layout()

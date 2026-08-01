@@ -18,7 +18,7 @@ deriv(fq,
 deriv(fe,
       c("a", "b"))
 
-# curve shapes
+# curve shapes (params kept for the graphic section)
 a <- 1
 b <- 2
 b1 <- 1
@@ -26,23 +26,6 @@ b2 <- -0.5
 x <- seq(from = -10,
          to = 10,
          by = 0.5)
-
-oldpar <- par(no.readonly = TRUE)
-par(mfrow = c(1, 1))
-
-# linear / quadratic / exponential demos (one figure each)
-plot(eval(fl) ~ x, type = "b")
-
-plot(eval(fq) ~ x, type = "b")
-
-plot(eval(fe) ~ x, type = "b")
-
-# sign flips change the exponential shape
-plot(eval(expression(-a * exp(x / b))) ~ x, type = "b")
-
-plot(eval(expression(a * exp(x / -b))) ~ x, type = "b")
-
-plot(eval(expression(-a * exp(x / -b))) ~ x, type = "b")
 
 # BOD dataset — first-order growth model
 str(BOD)
@@ -57,6 +40,45 @@ m_1 <- nls(demand ~ a * (1 - exp(-exp(b) * Time)),
 summary(m_1)
 coef(m_1)
 m_1
+
+# self-starting alternative
+fm3 <- nls(demand ~ SSasympOrig(Time, a, b),
+           data = BOD,
+           trace = TRUE)
+summary(fm3)
+coef(fm3)
+fm3
+
+# --- GRAPHIC OUTPUT ---
+
+oldpar <- par(no.readonly = TRUE)
+par(mfrow = c(1, 1))
+
+# linear / quadratic / exponential demos (one figure each)
+plot(eval(fl) ~ x,
+     type = "b",
+     main = "sample 12 — linear in params")
+
+plot(eval(fq) ~ x,
+     type = "b",
+     main = "sample 12 — quadratic")
+
+plot(eval(fe) ~ x,
+     type = "b",
+     main = "sample 12 — exponential")
+
+# sign flips change the exponential shape
+plot(eval(expression(-a * exp(x / b))) ~ x,
+     type = "b",
+     main = "sample 12 — -a*exp(x/b)")
+
+plot(eval(expression(a * exp(x / -b))) ~ x,
+     type = "b",
+     main = "sample 12 — a*exp(x/-b)")
+
+plot(eval(expression(-a * exp(x / -b))) ~ x,
+     type = "b",
+     main = "sample 12 — -a*exp(x/-b)")
 
 # one figure: data + fitted points/curve (overlays with plot)
 with(BOD, {
@@ -73,12 +95,4 @@ with(BOD, {
 })
 
 par(oldpar)
-
-# self-starting alternative
-fm3 <- nls(demand ~ SSasympOrig(Time, a, b),
-           data = BOD,
-           trace = TRUE)
-summary(fm3)
-coef(fm3)
-fm3
 message("PASS 12_rl_linear_vs_nlinear")

@@ -19,6 +19,8 @@ fit <- aov(resp ~ trt)
 summary(fit)
 TukeyHSD(fit)
 
+# --- GRAPHIC OUTPUT ---
+
 boxplot(resp ~ trt,
         col = c("grey80", "skyblue", "tomato"),
         main = "sample 10 — ANOVA boxplot",

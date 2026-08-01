@@ -4,6 +4,11 @@ Progressive complexity for the **stateful** sniper (Arm → Ctrl+C), not one-sho
 
 **Premise (D21):** system Python on PATH (`python` / `python3` / `py -3`). Stdlib-first; **matplotlib** for plots; optional **numpy**.
 
+**Two-stage (text → graphic):** mixed scripts print summaries first, then
+`# --- GRAPHIC OUTPUT ---`, then matplotlib (Agg; leave fig open). ST can
+split on that marker. Intentional-error sample (`09_exceptions.py`) has no
+marker.
+
 | File | Plot? | Topic / TF |
 |------|-------|------------|
 | `01_hello.py` | no | print / arithmetic |
@@ -37,6 +42,9 @@ Progressive complexity for the **stateful** sniper (Arm → Ctrl+C), not one-sho
 | `29_plot_stacked_area.py` | yes | stackplot + annotate |
 | `30_stateful_fit_predict.py` | yes | fit → predict + scatter |
 | `31_external_mpl_window.py` | ext* | **TkAgg window** (Settings: Show matplotlib; SKIP if Agg) |
+| `32_bar_pie.py` | yes | bar + pie |
+| `33_boxplot.py` | yes | three-group boxplot |
+| `34_hexbin.py` | yes | hexbin density |
 
 Run assert-style checks (non-plot / non-error) from repo root:
 
@@ -54,5 +62,7 @@ comments; PEP-ish spacing.
 
 - **Do not put blank lines inside `class` / `def` / `if-elif-else` / `try`
   bodies** — the progressive sniper REPL treats a blank as “end compound”.
+- Mixed text+plot: `# --- GRAPHIC OUTPUT ---` between stages.
+- **Every plot title includes `sample NN — …`** (`set_title` / `suptitle`).
 - Leave figures open for Agg → Plot panel; external-window samples (`31`) use
   Settings + `PASS`/`SKIP` guards.

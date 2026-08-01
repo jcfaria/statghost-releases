@@ -31,6 +31,8 @@ print("sse=", round(sse, 4))
 assert sse < 20
 print("PASS 30_stateful_fit_predict")
 
+# --- GRAPHIC OUTPUT ---
+
 try:
     import matplotlib
     matplotlib.use("Agg")

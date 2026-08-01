@@ -20,6 +20,8 @@ c(n = nrow(MM),
   p = ncol(MM),
   rank = qr(MM)$rank)
 
+# --- GRAPHIC OUTPUT ---
+
 # residual vs fitted (+ zero line and smoother)
 plot(fitted(fit),
      resid(fit),

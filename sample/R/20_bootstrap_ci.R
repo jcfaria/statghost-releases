@@ -13,6 +13,8 @@ c(mean = mean(x),
   lo = unname(ci[1]),
   hi = unname(ci[2]))
 
+# --- GRAPHIC OUTPUT ---
+
 # histogram of bootstrap means + mean/CI overlays
 hist(boots,
      breaks = 30,

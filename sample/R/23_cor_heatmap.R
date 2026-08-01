@@ -11,6 +11,8 @@ colnames(Z) <- paste0("V", 1:p)
 C <- cor(Z)
 round(C, 2)
 
+# --- GRAPHIC OUTPUT ---
+
 # heatmap (row flip so V1 is at the top)
 image(1:p,
       1:p,

@@ -18,6 +18,8 @@ c(parent_skew_hint = "gamma(1.2, 0.7)",
   sd_of_means = sd(means),
   theoretical_se = sd(pop(2000)) / sqrt(n))
 
+# --- GRAPHIC OUTPUT ---
+
 # histogram of sample means + normal overlay
 hist(means,
      breaks = 30,

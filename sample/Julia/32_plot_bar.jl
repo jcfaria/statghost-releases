@@ -1,14 +1,19 @@
 # Objective: Optional Plots.jl bar chart of small categorical counts.
 # No display(): STATghost captures PNG via savefig.
 
+cats = ["A", "B", "C", "D"]
+vals = [4, 7, 2, 5]
+println("counts=", Dict(cats .=> vals))
+println("total=", sum(vals))
+
+# --- GRAPHIC OUTPUT ---
+
 try
     ENV["GKSwstype"] = "100"
     using Plots
-    cats = ["A", "B", "C", "D"]
-    vals = [4, 7, 2, 5]
     bar(cats, vals;
         legend = false,
-        title = "counts",
+        title = "sample 32 — counts",
         color = :mediumseagreen,
         linecolor = :darkgreen,
         linewidth = 1.5,

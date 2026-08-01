@@ -11,6 +11,8 @@ y = [2.0, 4.0, 6.0, 8.0, 10.0]
 @assert cor(x, y) ≈ 1.0
 println("PASS 14_statistics_base")
 
+# --- GRAPHIC OUTPUT ---
+
 # optional visual of x
 try
     ENV["GKSwstype"] = "100"
@@ -18,7 +20,7 @@ try
     histogram(x;
               bins = 5,
               legend = false,
-              title = "x",
+              title = "sample 14 — x",
               color = :royalblue,
               fillalpha = 0.9,
               linecolor = :navy,

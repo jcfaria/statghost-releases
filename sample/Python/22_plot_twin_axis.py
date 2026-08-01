@@ -2,14 +2,26 @@
 # Leave the figure open for Agg → Plot panel capture.
 
 import math
-import matplotlib
-
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
+import statistics
 
 xs = [i / 10 for i in range(0, 63)]
 temp = [20 + 5 * math.sin(x) for x in xs]
 hum = [55 + 15 * math.cos(x / 1.3) for x in xs]
+print(
+    "n=",
+    len(xs),
+    "temp_mean=",
+    round(statistics.mean(temp), 2),
+    "hum_mean=",
+    round(statistics.mean(hum), 2),
+)
+
+# --- GRAPHIC OUTPUT ---
+
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
 
 fig, ax1 = plt.subplots()
 ax2 = ax1.twinx()

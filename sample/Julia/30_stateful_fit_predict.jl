@@ -37,6 +37,8 @@ println("sse=", round(sse; digits = 4))
 @assert sse < 20
 println("PASS 30_stateful_fit_predict")
 
+# --- GRAPHIC OUTPUT ---
+
 # Optional Plots.jl overlay (Plot panel / headless)
 try
     ENV["GKSwstype"] = "100"

@@ -2,6 +2,18 @@
 # Needs package: ggplot2 (auto-install to user lib if missing).
 # Blank lines = sniper chunks. Keep ~4–5 clear examples (not a mega Arm paste).
 
+# text prelude — net areas via antiderivatives (no drawing yet)
+F_lin <- function(x) 1 / 2 * (x^2)
+F_quad <- function(x) 1 / 3 * (x^3)
+F_sin <- function(x) -cos(x)
+
+c(area_triangle_0_2 = F_lin(2) - F_lin(0),
+  area_x2_1_3 = F_quad(3) - F_quad(1),
+  area_sin_0_2pi = F_sin(2 * pi) - F_sin(0),
+  area_sin_0_pi = F_sin(pi) - F_sin(0),
+  p_abs_z_lt_1 = pnorm(1) - pnorm(-1),
+  p_height_160_180 = pnorm(180, 170, 10) - pnorm(160, 170, 10))
+
 # Helper: plot f, shade [x1, x2], label net area via antiderivative F
 g_ftc <- function(f,
                   F_antideriv,
@@ -46,7 +58,7 @@ g_ftc <- function(f,
              y = mean(range(shade_data$y)),
              label = paste0("Area=", Area),
              size = 5) +
-    labs(title = bquote("Function visualization:" ~
+    labs(title = bquote("sample 13 — Function:" ~
                           f(x) == .(body(f))),
          subtitle = bquote("Integral via FTC:" ~
                              F(.(x2)) - F(.(x1)) == .(Area)),
@@ -65,6 +77,11 @@ g_ftc <- function(f,
   print(p)
   invisible(p)
 }
+
+# --- GRAPHIC OUTPUT ---
+
+oldpar <- par(no.readonly = TRUE)
+par(mfrow = c(1, 1))
 
 # --- example 1: linear (triangle under y = x) ---
 f <- function(x) x
@@ -120,4 +137,6 @@ g_ftc(f,
       x1 = 160,
       x2 = 180,
       lim_x = c(150, 190))
+
+par(oldpar)
 message("PASS 13_teorema_fundamental_calculo")

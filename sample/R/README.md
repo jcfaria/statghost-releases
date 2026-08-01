@@ -3,6 +3,11 @@
 Copy any file’s contents (or open and Ctrl+A / Ctrl+C) with **Arm** on.
 Blank lines separate sniper **chunks**. Prefer progressive eval for overlays.
 
+**Two-stage (text → graphic):** scripts with both console I/O and plots put
+all meaningful text first, then `# --- GRAPHIC OUTPUT ---`, then graphics.
+ST can split on that marker. Intentional-error sample (`07_error.R`) has no
+marker.
+
 | File | Plot? | Aspect |
 |------|-------|--------|
 | `01_hello.R` | no | arithmetic / single line |
@@ -36,6 +41,10 @@ Blank lines separate sniper **chunks**. Prefer progressive eval for overlays.
 | `29_closures.R` | yes | closures / `<<-` |
 | `30_anova_diagnostics.R` | yes | ANOVA + Tukey + `plot(aov)` |
 | `31_external_rgl.R` | ext* | **RGL OpenGL window** (Settings: Show RGL; SKIP if off/missing) |
+| `32_qqnorm.R` | yes | QQ-normal + Shapiro |
+| `33_bar_pie.R` | yes | bar proportions + pie |
+| `34_pairs.R` | yes | `pairs` scatter matrix |
+| `35_density_rug.R` | yes | density + rug |
 
 Seeded where randomness matters so PNG/PDF dual-draw stay aligned.
 
@@ -50,5 +59,10 @@ Teaching / didactic REPL is the primary purpose. Each sample starts with
 - **Blank lines = sniper chunks** (Arm → Ctrl+C progressive eval).
 - Break calls with **>2 arguments** at commas (`plot`, `abline`, `lines`,
   `text`, `segments`, `legend`, …).
+- Mixed text+plot: `# --- GRAPHIC OUTPUT ---` between stages.
+- Plot titles include the script number (`main = "sample NN — …"`).
+- If the script changes `par()` / `layout()`, wrap with
+  `oldpar <- par(no.readonly = TRUE)` … `par(oldpar)` (not only
+  `par(mfrow = c(1, 1))`).
 - Keep lessons sniper-sized; trim mega-files rather than one long Arm paste.
 - Optional deps print `SKIP …` (TF-safe); leave figures open for Plot capture.

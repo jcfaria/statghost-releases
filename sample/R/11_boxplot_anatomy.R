@@ -21,18 +21,33 @@ out.upp <- q[3] + 1.5 * iqr
 min.no <- min(X[X >= out.low])
 max.no <- max(X[X <= out.upp])
 
+# tick positions at extremes and quartiles (text before graphics)
+at <- c(min(X),
+        q[1],
+        q[2],
+        q[3],
+        max(X))
+at
+
+c(min.no = min.no,
+  max.no = max.no,
+  out.low = out.low,
+  out.upp = out.upp)
+
+# --- GRAPHIC OUTPUT ---
+
 # --- box panel: layout + bare boxplot ---
+oldpar <- par(no.readonly = TRUE)
+
 # two-panel layout: boxplot | histogram
 layout(matrix(1:2, ncol = 2),
        widths = c(3, 1),
        heights = c(3.5, 3.5),
        TRUE)
 
-oldpar <- par(no.readonly = TRUE)
-
 par(mar = c(2,
             3.1,
-            1,
+            2.5,
             0))
 
 min.y <- min(c(min(X), out.low))
@@ -45,17 +60,10 @@ boxplot(X,
         boxwex = 0.4,
         at = 1,
         col = gray(0.8),
-        axes = FALSE)
+        axes = FALSE,
+        main = "sample 11 — boxplot anatomy")
 
 # --- labels: axis, quartiles, Min/Max, IQR, fences ---
-# tick positions at extremes and quartiles
-at <- c(min(X),
-        q[1],
-        q[2],
-        q[3],
-        max(X))
-at
-
 axis(2,
      at = at,
      labels = format(round(at, 1)),
@@ -256,4 +264,5 @@ abline(h = c(out.low, q[1], q[2], q[3], out.upp),
        col = "red")
 
 par(oldpar)
+layout(1)
 message("PASS 11_boxplot_anatomy")

@@ -20,6 +20,8 @@ y = X * β_true .+ 0.05 .* randn(n)
 @assert norm(β_hat - β_true) < 0.15
 println("PASS 27_least_squares β=$β_hat")
 
+# --- GRAPHIC OUTPUT ---
+
 # optional residual scatter
 try
     ENV["GKSwstype"] = "100"
@@ -28,7 +30,7 @@ try
     resid = y .- yhat
     scatter(yhat, resid;
             legend = false,
-            title = "resid vs fitted",
+            title = "sample 27 — resid vs fitted",
             ms = 8,
             color = :crimson,
             markerstrokewidth = 1,

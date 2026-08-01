@@ -21,7 +21,10 @@ Layout:
 6. End with a visible **`PASS <stem>`** (or intentional **`FAIL …`** / **`SKIP …`**).
 7. Multi-figure scripts: blank line **between** figures; keep `abline`/`lines`/
    `points` in the **same** chunk as their `plot()`/`hist()` (no orphan overlays).
-8. Update that language’s README table.
+8. Mixed text + plot: put all meaningful text I/O first, then exactly one
+   `# --- GRAPHIC OUTPUT ---` marker, then all graphics (ST two-stage).
+9. **Every plot title includes `sample NN — …`** (R / Python / Julia).
+10. Update that language’s README table.
 
 Detail: `.cursor/rules/statghost-didactic-repl.mdc` · D23 in `w_todo`.
 
@@ -29,15 +32,18 @@ Copy any file with **Arm** on. Prefer **one chunk at a time**. Compound blocks
 need a closing blank in a normal REPL — STATghost sends one at end of clipboard
 when needed.
 
-Automated sample-matrix smoke (**SR** R / **SP** Python / **SJ** Julia / **ST** all):
+Automated sample-matrix smoke (**SR** / **SP** / **SJ** / **ST** full;
+**SRD** / **SPD** / **SJD** / **STD** Dev = random ~20% of scripts per lane).
+**Golden:** in Dev always use a *D mode.
 
 ```text
 powershell -File src/build.ps1
-powershell -File src/tf_samples.ps1              # ST
-powershell -File src/tf_samples.ps1 -Mode SJ     # Julia only
+powershell -File src/tf_samples.ps1              # ST (full)
+powershell -File src/tf_samples.ps1 -Mode STD    # Dev total
+powershell -File src/tf_samples.ps1 -Mode SJD    # Dev Julia
 ```
 
-Reports: `src/_out/statg_sr|sp|sj|st_report.txt` (`RESULT=BOK` / `FAIL`).
+Reports: `src/_out/statg_sr|sp|sj|st|srd|spd|sjd|std_report.txt` (`RESULT=BOK` / `FAIL`).
 Alias for ST: `--tf-samples`.
 
 See each folder’s table for plots / deps.

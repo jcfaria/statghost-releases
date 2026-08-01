@@ -30,10 +30,6 @@ round(mean(Y - Z), 5) ==
   round(mean(Y) - mean(Z), 5)
 
 # If independent: E(YZ) = E(Y)*E(Z) — here Y and Z are dependent
-plot(Z ~ Y, pch = 20)
-abline(v = mean(Y), col = 2)
-abline(h = mean(Z), col = 4)
-
 cov(Y, Z)
 
 round(mean(Y * Z), 5) ==
@@ -64,14 +60,23 @@ round(var(Y - Z), 5) ==
   round(var(Y) + var(Z), 5)
 
 # Dependent case: V(Y ± Z) = V(Y) + V(Z) ± 2*Cov(Y, Z)
-(Y <- 1:20)
-(Z <- 2 * Y)
-cov(Y, Z)
-cor(Y, Z)
+(Y2 <- 1:20)
+(Z2 <- 2 * Y2)
+cov(Y2, Z2)
+cor(Y2, Z2)
 
-round(var(Y + Z), 2) ==
-  round(var(Y) + var(Z) + 2 * cov(Y, Z), 2)
+round(var(Y2 + Z2), 2) ==
+  round(var(Y2) + var(Z2) + 2 * cov(Y2, Z2), 2)
 
-round(var(Y - Z), 5) ==
-  round(var(Y) + var(Z) - 2 * cov(Y, Z), 5)
+round(var(Y2 - Z2), 5) ==
+  round(var(Y2) + var(Z2) - 2 * cov(Y2, Z2), 5)
+
+# --- GRAPHIC OUTPUT ---
+
+# Y and Z = Y^2: dependence with near-zero linear correlation
+plot(Z ~ Y,
+     pch = 20,
+     main = "sample 14 — Y vs Z=Y^2")
+abline(v = mean(Y), col = 2)
+abline(h = mean(Z), col = 4)
 message("PASS 14_va_propriedades")

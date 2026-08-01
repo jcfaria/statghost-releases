@@ -1,16 +1,22 @@
 # Objective: Optional Plots.jl scatter with a trend line.
 # No display(): STATghost captures PNG via savefig; avoid GKS QtTerm.
 
+using Random
+using Statistics
+
+Random.seed!(1)
+x = randn(80)
+y = 0.5 .* x .+ 0.1 .* randn(80)
+println("n=", length(x), " corr≈", round(cor(x, y); digits = 4))
+
+# --- GRAPHIC OUTPUT ---
+
 try
     ENV["GKSwstype"] = "100"
     using Plots
-    using Random
-    Random.seed!(1)
-    x = randn(80)
-    y = 0.5 .* x .+ 0.1 .* randn(80)
     plt = scatter(x, y;
                   legend = false,
-                  title = "scatter",
+                  title = "sample 19 — scatter",
                   ms = 8,
                   color = :darkorange,
                   markerstrokewidth = 1,

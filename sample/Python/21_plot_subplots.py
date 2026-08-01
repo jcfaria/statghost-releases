@@ -2,14 +2,27 @@
 # Leave the figure open for Agg → Plot panel capture.
 
 import random
+import statistics
+
+random.seed(21)
+xs = list(range(40))
+ys = [random.gauss(0, 1) for _ in xs]
+print(
+    "n=",
+    len(ys),
+    "mean=",
+    round(statistics.mean(ys), 4),
+    "stdev=",
+    round(statistics.stdev(ys), 4),
+)
+
+# --- GRAPHIC OUTPUT ---
+
 import matplotlib
 
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-random.seed(21)
-xs = list(range(40))
-ys = [random.gauss(0, 1) for _ in xs]
 fig, axes = plt.subplots(2, 2, figsize=(7, 5.5))
 axes[0, 0].plot(xs, ys, color="steelblue")
 axes[0, 0].set_title("line")
