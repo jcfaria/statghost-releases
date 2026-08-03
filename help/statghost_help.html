@@ -74,7 +74,7 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="brand">STATghost · v0.4.8</p>
+      <p class="brand">STATghost · v0.4.9</p>
       <h1>Quick manual</h1>
       <p class="lead">Copy → local R / Python / Julia → text and plot. A sniper, not an IDE.</p>
       <div class="lights" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div>
@@ -178,9 +178,9 @@
             <kbd>C+Up</kbd>/<kbd>C+Down</kbd> (hold letter C, not Ctrl) jump previous/next
             input cell.</li>
         <li><strong>Chrome (Separados | Unidos)</strong> — <strong>Unite/Split</strong>
-            button on the tab bar (rightmost). <strong>Separados</strong> (default):
+            button on the tab bar (rightmost). <strong>Separados</strong>:
             floating traffic bar + panel; lights only on the float (panel shows the
-            mode toggle). <strong>Unidos</strong>: one window — strip on the tab bar
+            mode toggle). <strong>Form único</strong> / Unidos (default): one window — strip on the tab bar
             (brand | Set | Arm | Kill | Clear); floating bar hidden while the panel
             is open. Horizontal magnet: shared left edge; vertical: tops aligned,
             rail to the left of the panel.</li>
@@ -201,8 +201,12 @@
     <section>
       <h2>Settings</h2>
       <ul>
-        <li><strong>Appearance</strong> — opacity, toolbar orientation, toolbar
-            icon size (<strong>16 px</strong> / <strong>24 px</strong>, default 24), theme.
+        <li><strong>Appearance</strong> — opacity; <strong>Toolbar</strong>
+            orientation (Separados only — unmarked/disabled under Form único);
+            <strong>Layout</strong> (<strong>Separados</strong> |
+            <strong>Form único</strong>, default Form único; same as Unite/Split);
+            <strong>Icon size</strong> (<strong>16 px</strong> /
+            <strong>24 px</strong>, default 24); theme.
             Chrome uses flat monochrome glyphs tinted for the active theme.</li>
         <li><strong>Behavior</strong> — after-eval focus (Auto / Console / Plot / source);
             Console scroll after eval (Middle / Top / Bottom).</li>
@@ -220,8 +224,8 @@
             <kbd>C+Up</kbd>/<kbd>C+Down</kbd> (hold letter C, not Ctrl) jump previous/next
             input cell (both configurable).</li>
         <li><strong>Editor</strong> — font, highlighter, view options
-            (Settings preview may still use SynEdit; live Console uses ATSynEdit
-            + <code>lexer/</code>).
+            (Settings Syntax preview mirrors ATSynEdit Console chrome;
+            live Console uses ATSynEdit + <code>lexer/</code>).
             Under Syntax → Console: chrome <strong>Moldura (frame)</strong>
             (default) or <strong>Zebrado (zebra)</strong>; optional frame colour
             (theme or custom). Moldura outlines echoed input only.
@@ -292,7 +296,7 @@
       </ul>
     </section>
 
-    <footer>STATghost v0.4.8 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
+    <footer>STATghost v0.4.9 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
   </div>
 </body>
 </html>
