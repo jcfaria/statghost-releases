@@ -74,7 +74,7 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="brand">STATghost · v0.4.7</p>
+      <p class="brand">STATghost · v0.4.8</p>
       <h1>Quick manual</h1>
       <p class="lead">Copy → local R / Python / Julia → text and plot. A sniper, not an IDE.</p>
       <div class="lights" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div>
@@ -98,14 +98,20 @@
     <section>
       <h2>Traffic lights</h2>
       <ul>
-        <li><strong>Set</strong> — preferences.</li>
+        <li><strong>Set</strong> — preferences (Appearance includes toolbar icon
+            size 16&nbsp;px / 24&nbsp;px).</li>
         <li><strong>Idle / Armed</strong> — clipboard sniper on/off.</li>
         <li><strong>Kill</strong> — stop <em>this app’s</em> current engine child.</li>
-        <li><strong>Panel</strong> — show/hide the output window.</li>
+        <li><strong>Panel</strong> — show/hide the output window
+            (<strong>Separados</strong> float bar only; not duplicated on the
+            Unidos tab strip).</li>
         <li><strong>Clear</strong> — clear console and plot.</li>
+        <li><strong>Unite/Split</strong> — Separados ↔ Unidos (rightmost on the
+            panel tab bar; switch glyph).</li>
       </ul>
       <p class="note">Click the <strong>icon</strong> → Help / About / <strong>OS global hotkeys</strong> / Quit.
-        Status shows engine badge and <code>HK: on|off</code>. Drag the bar by the background.</p>
+        Status shows engine badge and <code>HK: on|off</code>. Drag the bar by the background.
+        Chrome glyphs are flat monochrome, tinted for the active theme.</p>
     </section>
 
     <section>
@@ -147,7 +153,9 @@
             — step a script line by line without selecting. If the source app does
             nothing without a selection, select text as usual (or use <kbd>Ctrl+C</kbd>
             when Armed).</li>
-        <li>Console always scrolls to the latest line, even with the Plot tab active.</li>
+        <li>After each eval, Console scroll can sit the new chunk at
+            <strong>Middle</strong> (default), Top, or Bottom
+            (Set → Behavior).</li>
         <li>Meta notices go to the console meta stream; status bar shows engine badge + tips.</li>
       </ul>
     </section>
@@ -180,7 +188,8 @@
             eval drew graphics, else <strong>Console</strong>
             (Set → Behavior to force Console, Plot, or return to source).</li>
         <li>Plot: high-res PNG (R, Python Matplotlib, Julia Plots.jl); zoom and
-            history <strong>← / →</strong>; optional PDF (R); <strong>Size</strong> matches pane (default on)
+            history <strong>← / →</strong>; erase-history control after the
+            <code>N/M</code> counter; optional PDF (R); <strong>Size</strong> matches pane (default on)
             and PNG DPI slider (soft green → dark blue, default 288) shared by
             TImage and AT Gaps.
             Set → Plot panel → Display chooses <strong>Lazarus TImage</strong>
@@ -192,7 +201,9 @@
     <section>
       <h2>Settings</h2>
       <ul>
-        <li><strong>Appearance</strong> — opacity, toolbar orientation, theme.</li>
+        <li><strong>Appearance</strong> — opacity, toolbar orientation, toolbar
+            icon size (<strong>16 px</strong> / <strong>24 px</strong>, default 24), theme.
+            Chrome uses flat monochrome glyphs tinted for the active theme.</li>
         <li><strong>Behavior</strong> — after-eval focus (Auto / Console / Plot / source);
             Console scroll after eval (Middle / Top / Bottom).</li>
         <li><strong>Session</strong> — Path | Options per language;
@@ -215,8 +226,8 @@
             (default) or <strong>Zebrado (zebra)</strong>; optional frame colour
             (theme or custom). Moldura outlines echoed input only.
             <kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> cycle Font|Syntax.</li>
-        <li><strong>Plot panel</strong> — Display (TImage | AT Gaps), history, PDF, Size
-            (match pane + PNG DPI slider).</li>
+        <li><strong>Plot panel</strong> — Display (TImage | AT Gaps), history
+            ←/→ + erase-history, PDF, Size (match pane + PNG DPI slider).</li>
       </ul>
     </section>
 
@@ -276,10 +287,12 @@
         <li>Python / Julia not found → set path under Session → Path, or leave empty for discover.</li>
         <li>Stuck eval → press <strong>Kill</strong>, then Arm again.</li>
         <li>Hotkey clash → turn off <strong>OS global hotkeys</strong> (Ctrl+C when Armed remains).</li>
+        <li>Taskbar icon looks outdated after an update → unpin / repin
+            <code>statghost.exe</code> (Windows caches MAINICON).</li>
       </ul>
     </section>
 
-    <footer>STATghost v0.4.7 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
+    <footer>STATghost v0.4.8 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
   </div>
 </body>
 </html>
