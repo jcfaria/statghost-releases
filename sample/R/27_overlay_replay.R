@@ -1,6 +1,6 @@
 # Objective: Base plot with lowess + highlight points (one figure, one chunk).
 # Keep overlays with plot() so progressive Arm never hits "plot.new has not
-# been called yet". (Product still supports .statg.replay when chunks split.)
+# been called yet". (Product still supports `.STATghost` replay when chunks split.)
 # Blank lines = sniper chunks.
 
 set.seed(27)

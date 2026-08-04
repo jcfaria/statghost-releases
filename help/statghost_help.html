@@ -74,7 +74,7 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="brand">STATghost · v0.4.9</p>
+      <p class="brand">STATghost · v0.4.11</p>
       <h1>Quick manual</h1>
       <p class="lead">Copy → local R / Python / Julia → text and plot. A sniper, not an IDE.</p>
       <div class="lights" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div>
@@ -83,8 +83,9 @@
     <section>
       <h2>30 seconds</h2>
       <ol>
-        <li>Unzip so <code>statghost.exe</code> and <code>statghost_rhost.exe</code> stay together
-            (rhost only needed for R.dll).</li>
+        <li>Unzip so <code>statghost.exe</code>, <code>statghost_rhost.exe</code>,
+            <code>lexer/</code>, and <code>library/</code> stay together
+            (rhost only for R.dll; <code>library/</code> for Explorer companion).</li>
         <li>Run <code>statghost.exe</code> (toolbar, top-right).</li>
         <li>Under <strong>Set → Session</strong>, pick <strong>R</strong>, <strong>Python</strong>, or
             <strong>Julia</strong> (and path if needed).</li>
@@ -99,7 +100,7 @@
       <h2>Traffic lights</h2>
       <ul>
         <li><strong>Set</strong> — preferences (Appearance includes toolbar icon
-            size 16&nbsp;px / 24&nbsp;px).</li>
+            size 16&nbsp;px / 24&nbsp;px / 32&nbsp;px, default 24).</li>
         <li><strong>Idle / Armed</strong> — clipboard sniper on/off.</li>
         <li><strong>Kill</strong> — stop <em>this app’s</em> current engine child.</li>
         <li><strong>Panel</strong> — show/hide the output window
@@ -199,6 +200,36 @@
     </section>
 
     <section>
+      <h2>Explorer (R)</h2>
+      <p>Object browser for the active R session (VP-EX-1). Requires
+         <code>library/STATghostcom_R/STATghostcom</code> beside the EXE
+         (shipped in the zip) or the installed companion under AppData.</p>
+      <ul>
+        <li><strong>Open / hide:</strong> traffic-bar <strong>Expl</strong> light,
+            Unidos chrome button, or <kbd>Ctrl+E</kbd> (Set → Hotkeys).</li>
+        <li><strong>Dock:</strong> <strong>L</strong> | <strong>R</strong>
+            (<code>dock-left</code>/<code>dock-right</code>) beside the main window,
+            or <strong>Float</strong>. <strong>Top</strong>/<strong>Norm</strong>
+            stay-on-top (default Top); <strong>Auto</strong>/<strong>Fill</strong> height;
+            window size and Environment pane height are remembered.</li>
+        <li><strong>Environment:</strong> <code>search()</code> list with
+            <strong>.GlobalEnv</strong> always first. Click a row to list Objects in
+            that environment. <strong>Hid</strong>/<strong>All</strong> toggles hidden
+            names (<code>all.names</code>).</li>
+        <li><strong>Objects:</strong> <strong>Tree</strong> (names + type icons) or
+            <strong>Grid</strong> (Name / Type / Class / Dim). Filter by structural type
+            (not S3/S4) and optional Perl-compatible name regex (empty box; hint on hover;
+            Enter stores history). Refresh after eval or the Refresh button.
+            <strong>Clear</strong> removes visible names from <code>.GlobalEnv</code>
+            (confirm).</li>
+        <li><strong>Companion:</strong> R package <code>STATghostcom</code> —
+            installed on first use into
+            <code>%LOCALAPPDATA%/STATghost/library</code>; helpers in exported
+            <code>.sg</code> (no <code>attach</code>).</li>
+      </ul>
+    </section>
+
+    <section>
       <h2>Settings</h2>
       <ul>
         <li><strong>Appearance</strong> — opacity; <strong>Toolbar</strong>
@@ -206,10 +237,13 @@
             <strong>Layout</strong> (<strong>Separados</strong> |
             <strong>Form único</strong>, default Form único; same as Unite/Split);
             <strong>Icon size</strong> (<strong>16 px</strong> /
-            <strong>24 px</strong>, default 24); theme.
-            Chrome uses flat monochrome glyphs tinted for the active theme.</li>
+            <strong>24 px</strong> / <strong>32 px</strong>, default 24); theme.
+            Chrome uses flat monochrome glyphs tinted for the active theme
+            (traffic bar, Unidos strip, Plot bar, Explorer).</li>
         <li><strong>Behavior</strong> — after-eval focus (Auto / Console / Plot / source);
-            Console scroll after eval (Middle / Top / Bottom).</li>
+            Console scroll after eval (Middle / Top / Bottom);
+            Console echo — optional echo of full-line <code>#</code> comments in
+            input chunks (default off).</li>
         <li><strong>Session</strong> — Path | Options per language;
             <kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> cycle R|Python|Julia
             (does not change Active Use radios).</li>
@@ -244,8 +278,9 @@
             app, then eval (current line without selection in many editors).</li>
         <li><kbd>Ctrl+Alt+F</kbd> — Focus mode toggle (default).</li>
         <li><kbd>Ctrl+L</kbd> — Clear Console text only (default; R console).</li>
+        <li><kbd>Ctrl+E</kbd> — show / hide Explorer (default).</li>
         <li>Brand menu <strong>OS global hotkeys</strong> — when off, Arm / alt-capture /
-            focus / clear chords are unregistered (<code>HK: off</code>). Ctrl+C sniper
+            focus / clear / Explorer chords are unregistered (<code>HK: off</code>). Ctrl+C sniper
             while Armed still works.</li>
       </ul>
     </section>
@@ -296,7 +331,7 @@
       </ul>
     </section>
 
-    <footer>STATghost v0.4.9 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
+    <footer>STATghost v0.4.11 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
   </div>
 </body>
 </html>
