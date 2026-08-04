@@ -31,6 +31,15 @@ Source development happens in a separate private repo until the project is ready
 4. Open Settings -> choose the engine -> **Arm** -> copy a chunk from [sample/](sample/).  
 5. Browse [help/statghost_help.html](help/statghost_help.html) if needed.
 
+## Author / Maintainer
+
+Started and maintained by:
+
+**Faria, J. C.**  
+Universidade Estadual de Santa Cruz — UESC  
+Departamento de Ciências Exatas — DCEX  
+Ilhéus — Bahia — Brazil
+
 ## Licence
 
 [Mozilla Public License 2.0](LICENSE) (MPL-2.0).
