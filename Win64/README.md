@@ -1,22 +1,7 @@
-# Win64
+﻿# STATghost Win64
 
-Download the latest **Windows x64** zip from:
+Latest: **v0.4.13** — download `statghost-v0.4.13-win64.zip` from
+[Releases](https://github.com/jcfaria/statghost-releases/releases/tag/v0.4.13).
 
-https://github.com/jcfaria/statghost-releases/releases
-
-Current build: **v0.4.12** — statghost-v0.4.12-win64.zip
-
-Typical contents of the zip:
-
-- statghost.exe — main app  
-- statghost_rhost.exe — R DLL sidecar (when using R)  
-- statghost_py_repl.py / statghost_jl_repl.jl — REPL drivers  
-- lexer/ — Cuda lexers for Console (ATSynEdit)  
-- png/ — UI glyphs (16 / 24 / 32 px)  
-- library/STATghostcom_R/ — Explorer companion STATghostcom (**MPL-2.0**, same as the app; ships LICENSE)  
-- sample/ — didactic scripts (also mirrored in this repo)  
-- help HTML / PDF copy
-
-Unpack anywhere and run statghost.exe. Prefer a folder you can write to (plot history uses a temp dir under AppData).
-
-Do **not** commit large .exe / .zip files into this Git tree — attach them to GitHub Releases instead.
+Requires local R and/or Python 3 and/or Julia. Keep `library/` and `lexer/`
+beside the EXE.

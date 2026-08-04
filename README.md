@@ -1,6 +1,6 @@
-# STATghost — releases
+﻿# STATghost â€” releases
 
-**Sniper REPL for statistics** — clipboard → local engines (**R**, **Python**, **Julia**) → text/plot.
+**Sniper REPL for statistics** â€” clipboard â†’ local engines (**R**, **Python**, **Julia**) â†’ text/plot.
 
 STATghost stays small and offline: when **armed**, it watches \Ctrl+C\, evaluates the selection in a local session, and shows results in a compact panel. When **disarmed**, the clipboard behaves normally.
 
@@ -10,7 +10,7 @@ Source development happens in a separate private repo until the project is ready
 ## Goals
 
 - A **lightweight** alternative to a full IDE for classroom / lab PCs  
-- **Progressive REPL** (stateful session) — not one-shot script runners  
+- **Progressive REPL** (stateful session) â€” not one-shot script runners  
 - Clear **samples** for teaching R, Python, and Julia side by side  
 - Offline-first: engines already installed on the machine
 
@@ -18,9 +18,9 @@ Source development happens in a separate private repo until the project is ready
 
 | Path | Contents |
 |------|----------|
-| [\Win64/\](Win64/) | Windows x64 notes — binaries via [Releases](https://github.com/jcfaria/statghost-releases/releases) |
-| [\Linux/\](Linux/) | Linux x86_64 notes — binaries via Releases |
-| [\sample/\](sample/) | Didactic scripts (Arm → Ctrl+C) |
+| [\Win64/\](Win64/) | Windows x64 notes â€” binaries via [Releases](https://github.com/jcfaria/statghost-releases/releases) |
+| [\Linux/\](Linux/) | Linux x86_64 notes â€” binaries via Releases |
+| [\sample/\](sample/) | Didactic scripts (Arm â†’ Ctrl+C) |
 | [\help/\](help/) | User guide (HTML + PDF) |
 
 ## Quick start
@@ -28,7 +28,7 @@ Source development happens in a separate private repo until the project is ready
 1. Install **R** and/or **Python** and/or **Julia** on the machine.  
 2. Download the latest **Win64** or **Linux** asset from [Releases](https://github.com/jcfaria/statghost-releases/releases).  
 3. Unpack, run \statghost\ (Windows: \statghost.exe\).  
-4. Open Settings → choose the engine → **Arm** → copy a chunk from [\sample/\](sample/).  
+4. Open Settings â†’ choose the engine â†’ **Arm** â†’ copy a chunk from [\sample/\](sample/).  
 5. Browse [\help/statghost_help.html\](help/statghost_help.html) if needed.
 
 ## Licence
@@ -38,7 +38,7 @@ Source development happens in a separate private repo until the project is ready
 ## Status
 
 Public **distribution** channel. Version tags match product milestones (\0.x.y\).  
-Latest Win64 build: **v0.4.12**. Linux gtk2 asset still **v0.4.2** until the next lab package.  
+Latest Win64 build: **v0.4.13**. Linux gtk2 asset still **v0.4.2** until the next lab package.  
 Feedback welcome via GitHub Issues on this repo.
 
 ## Author / Maintainer
@@ -46,6 +46,6 @@ Feedback welcome via GitHub Issues on this repo.
 Started and maintained by:
 
 **Faria, J. C.**  
-Universidade Estadual de Santa Cruz — UESC  
-Departamento de Ciências Exatas — DCEX  
-Ilhéus — Bahia — Brazil
+Universidade Estadual de Santa Cruz â€” UESC  
+Departamento de CiÃªncias Exatas â€” DCEX  
+IlhÃ©us â€” Bahia â€” Brazil
