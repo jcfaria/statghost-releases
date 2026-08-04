@@ -1,7 +1,19 @@
-﻿# STATghost Win64
+# Win64
 
-Latest: **v0.4.13** — download `statghost-v0.4.13-win64.zip` from
-[Releases](https://github.com/jcfaria/statghost-releases/releases/tag/v0.4.13).
+Download the latest **Windows x64** zip from:
 
-Requires local R and/or Python 3 and/or Julia. Keep `library/` and `lexer/`
-beside the EXE.
+https://github.com/jcfaria/statghost-releases/releases
+
+Current build: **v0.4.14** — `statghost-v0.4.14-win64.zip`
+
+Typical contents of the zip:
+
+- `statghost.exe` — main app
+- `statghost_rhost.exe` — R DLL sidecar (when using R)
+- `statghost_py_repl.py` / `statghost_jl_repl.jl` — REPL drivers
+- `lexer/` — Cuda lexers for Console
+- `library/STATghostcom_R/` — Explorer companion package sources
+- `png/` — chrome glyphs
+- `sample/` — didactic scripts
+- `statghost_help.html` / `statghost_manual.pdf` — Help
+- `LICENSE` — MPL-2.0

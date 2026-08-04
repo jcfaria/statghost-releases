@@ -1,4 +1,4 @@
-﻿# STATghost â€” releases
+# STATghost â€” releases
 
 **Sniper REPL for statistics** â€” clipboard â†’ local engines (**R**, **Python**, **Julia**) â†’ text/plot.
 
@@ -38,7 +38,7 @@ Source development happens in a separate private repo until the project is ready
 ## Status
 
 Public **distribution** channel. Version tags match product milestones (\0.x.y\).  
-Latest Win64 build: **v0.4.13**. Linux gtk2 asset still **v0.4.2** until the next lab package.  
+Latest Win64 build: **v0.4.14**. Linux gtk2 asset still **v0.4.2** until the next lab package.  
 Feedback welcome via GitHub Issues on this repo.
 
 ## Author / Maintainer

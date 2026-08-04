@@ -74,7 +74,7 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="brand">STATghost · v0.4.13</p>
+      <p class="brand">STATghost · v0.4.14</p>
       <h1>Quick manual</h1>
       <p class="lead">Copy → local R / Python / Julia → text and plot. A sniper, not an IDE.</p>
       <div class="lights" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div>
@@ -218,11 +218,13 @@
             <strong>.GlobalEnv</strong> always first. Click a row to list Objects in
             that environment. <strong>Hid</strong>/<strong>All</strong> toggles hidden
             names (<code>all.names</code>).</li>
-        <li><strong>Objects:</strong> <strong>Tree</strong> (names + type icons) or
-            <strong>Grid</strong> (Name / Type / Class / Dim). Filter by structural type
-            (not S3/S4; icons match Tinn-R order) and optional Perl-compatible name regex
-            (empty box; hint on hover; Enter stores history). Refresh after eval or the
-            Refresh button.
+        <li><strong>Objects:</strong> exclusive <strong>Tree</strong> |
+            <strong>Grid</strong> (Name / Type / Class / Dim; Name fills remaining
+            width). Filter by structural type (not S3/S4; icons match Tinn-R order)
+            and optional Perl-compatible name regex (empty box; hint on hover;
+            Enter or leave field stores MRU under
+            <code>%LOCALAPPDATA%/STATghost/history_explorer_name_filter.json</code>;
+            Up/Down recall). Refresh after eval or the Refresh button.
             <strong>Clear</strong> removes visible names from <code>.GlobalEnv</code>
             (confirm).</li>
         <li><strong>Companion:</strong> R package <code>STATghostcom</code> —
@@ -335,7 +337,7 @@
       </ul>
     </section>
 
-    <footer>STATghost v0.4.13 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
+    <footer>STATghost v0.4.14 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
   </div>
 </body>
 </html>
