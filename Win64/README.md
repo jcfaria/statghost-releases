@@ -4,7 +4,7 @@ Download the latest **Windows x64** zip from:
 
 https://github.com/jcfaria/statghost-releases/releases
 
-Current build: **v0.4.11** — statghost-v0.4.11-win64.zip
+Current build: **v0.4.12** — statghost-v0.4.12-win64.zip
 
 Typical contents of the zip:
 
@@ -13,7 +13,7 @@ Typical contents of the zip:
 - statghost_py_repl.py / statghost_jl_repl.jl — REPL drivers  
 - lexer/ — Cuda lexers for Console (ATSynEdit)  
 - png/ — UI glyphs (16 / 24 / 32 px)  
-- library/STATghostcom_R/ — Explorer companion package STATghostcom (install on first use)  
+- library/STATghostcom_R/ — Explorer companion STATghostcom (**MPL-2.0**, same as the app; ships LICENSE)  
 - sample/ — didactic scripts (also mirrored in this repo)  
 - help HTML / PDF copy
 
