@@ -1,4 +1,7 @@
 # Objective: Optional Plots.jl grouped means (bar) — classroom-sized.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Uses base Plots only (no StatsPlots). No display(): PNG via savefig.
 
 using Random
@@ -12,7 +15,7 @@ labs = ["g1", "g2", "g3"]
 μ = [mean(g1), mean(g2), mean(g3)]
 println("group_means=", round.(μ; digits = 4))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 try
     ENV["GKSwstype"] = "100"

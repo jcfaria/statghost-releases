@@ -1,4 +1,7 @@
 # Objective: Matplotlib scatter of a noisy linear cloud.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Leave the figure open for Agg → Plot panel capture.
 
 import random
@@ -17,7 +20,7 @@ r = num / den
 print("n=", len(xs), "corr~=", round(r, 4))
 assert len(xs) == len(ys) == 80
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 import matplotlib
 

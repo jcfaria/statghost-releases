@@ -1,4 +1,7 @@
 # Objective: QQ-normal plot for a seeded sample (text summary then graphic).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 
 set.seed(32)
 z <- rnorm(120, mean = 2, sd = 1.5)
@@ -11,7 +14,7 @@ c(n = length(z),
 
 shapiro.test(z)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 qqnorm(z,
        pch = 16,

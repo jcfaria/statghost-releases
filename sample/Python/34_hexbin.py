@@ -1,4 +1,7 @@
 # Objective: Hexbin density of a bivariate Gaussian cloud.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Leave the figure open for Agg → Plot panel capture.
 
 import random
@@ -16,7 +19,7 @@ den = math.sqrt(
 )
 print("n=", n, "corr~=", round(num / den, 4))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 import matplotlib
 

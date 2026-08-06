@@ -1,4 +1,7 @@
 # Objective: CLT simulation — distribution of sample means from a skewed parent.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Blank lines = sniper chunks. Normal overlay stays with hist().
 
 set.seed(24)
@@ -18,7 +21,7 @@ c(parent_skew_hint = "gamma(1.2, 0.7)",
   sd_of_means = sd(means),
   theoretical_se = sd(pop(2000)) / sqrt(n))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # histogram of sample means + normal overlay
 hist(means,

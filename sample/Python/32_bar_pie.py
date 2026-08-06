@@ -1,4 +1,7 @@
 # Objective: Bar chart and pie chart of small categorical counts.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Leave the figure open for Agg → Plot panel capture.
 
 cats = ["A", "B", "C", "D"]
@@ -8,7 +11,7 @@ props = [v / total for v in vals]
 print("counts=", dict(zip(cats, vals)))
 print("props=", {c: round(p, 3) for c, p in zip(cats, props)})
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 import matplotlib
 

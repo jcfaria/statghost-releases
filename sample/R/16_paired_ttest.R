@@ -1,4 +1,7 @@
 # Objective: Paired t-test, Cohen's d, and stripchart of paired differences.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 
 set.seed(16)
 n <- 24
@@ -21,7 +24,7 @@ c(cohen_d = d, mean_diff = mean(after - before))
 diff <- after - before
 summary(diff)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # stripchart of differences
 stripchart(diff,

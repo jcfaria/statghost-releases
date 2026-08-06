@@ -1,4 +1,7 @@
 # Objective: Stateful mini-model — fit a line, then predict; optional plot.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Progressive REPL: coefficients remain for the next clipboard chunk.
 # No blank lines inside def bodies (progressive REPL closes on blank).
 
@@ -31,7 +34,7 @@ print("sse=", round(sse, 4))
 assert sse < 20
 print("PASS 30_stateful_fit_predict")
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 try:
     import matplotlib

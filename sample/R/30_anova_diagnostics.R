@@ -1,4 +1,7 @@
 # Objective: Multi-step ANOVA challenge — Tukey HSD plus diagnostic plots.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # No extra packages. Em-dash in title is fine under cairo_pdf on Linux.
 
 set.seed(30)
@@ -18,7 +21,7 @@ fit <- aov(y ~ g, data = d)
 summary(fit)
 TukeyHSD(fit)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # boxplot
 boxplot(y ~ g,

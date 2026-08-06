@@ -1,4 +1,7 @@
 # Objective: Kernel density with rug marks under the curve.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 
 set.seed(35)
 x <- c(rnorm(80, 0, 1),
@@ -11,7 +14,7 @@ c(n = length(x),
   sd = sd(x),
   dens_mode_x = d$x[which.max(d$y)])
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 plot(d,
      lwd = 2,

@@ -1,4 +1,7 @@
 # Objective: Bootstrap percentile CI for the mean, with histogram of replicates.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Blank lines = sniper chunks. Overlays stay with hist().
 
 set.seed(20)
@@ -13,7 +16,7 @@ c(mean = mean(x),
   lo = unname(ci[1]),
   hi = unname(ci[2]))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # histogram of bootstrap means + mean/CI overlays
 hist(boots,

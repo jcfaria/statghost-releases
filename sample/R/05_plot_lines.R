@@ -1,4 +1,7 @@
 # Objective: Scatter plus reference line and smoother (exercises PDF/PNG dual-draw).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Blank lines = sniper chunks. Overlays stay in the same chunk as plot().
 
 set.seed(21)
@@ -13,7 +16,7 @@ fit <- lm(y ~ x)
 coef(fit)
 summary(fit)$r.squared
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 plot(x,
      y,

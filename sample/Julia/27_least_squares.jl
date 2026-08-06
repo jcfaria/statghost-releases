@@ -1,4 +1,7 @@
 # Objective: Ordinary least squares via LinearAlgebra (+ optional resid plot).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Blank lines = sniper chunks.
 
 using LinearAlgebra
@@ -20,7 +23,7 @@ y = X * β_true .+ 0.05 .* randn(n)
 @assert norm(β_hat - β_true) < 0.15
 println("PASS 27_least_squares β=$β_hat")
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # optional residual scatter
 try

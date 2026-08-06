@@ -1,4 +1,7 @@
 # Objective: Force an *external* RGL OpenGL window (cannot embed in Plot panel).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Needs: package rgl + Settings → Session → R → Show RGL window, then Arm.
 # With the option off (default), prints SKIP (TF-safe). Blank lines = sniper chunks.
 
@@ -14,7 +17,7 @@ c(n = n,
   cor_xz = cor(x, z),
   cor_yz = cor(y, z))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # package guard
 if (!requireNamespace("rgl", quietly = TRUE)) {

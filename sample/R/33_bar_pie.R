@@ -1,4 +1,7 @@
 # Objective: Bar proportions and pie chart from a small categorical table.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 
 set.seed(33)
 grp <- factor(sample(c("A", "B", "C", "D"),
@@ -11,7 +14,7 @@ props <- prop.table(tab)
 tab
 round(props, 3)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 oldpar <- par(no.readonly = TRUE)
 par(mfrow = c(1, 2),

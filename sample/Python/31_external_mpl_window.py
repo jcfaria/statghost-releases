@@ -1,4 +1,7 @@
 # Objective: Force an *external* matplotlib window (TkAgg).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Cannot embed interactive GUI in the Plot panel (Agg PNG only by default).
 #
 # Prerequisites:
@@ -19,7 +22,7 @@ xs = list(range(0, 40))
 ys = [((x - 20) ** 2) / 100.0 for x in xs]
 print("n=", len(xs), "y_min=", min(ys), "y_max=", max(ys))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # backend guard (Agg → SKIP; Tk/Qt → external window)
 if "agg" in _be and "tk" not in _be and "qt" not in _be:

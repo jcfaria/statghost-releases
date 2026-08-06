@@ -20,8 +20,8 @@ Source code: [github.com/jcfaria/statghost](https://github.com/jcfaria/statghost
 
 ## Status
 
-Public **distribution** channel. Version tags match product milestones (`v0.4.15`).  
-Current Win64 build: **v0.4.15** - [`statghost-v0.4.15-win64.zip`](https://github.com/jcfaria/statghost-releases/releases/tag/v0.4.15).
+Public **distribution** channel. Version tags match product milestones (`v0.4.19`).  
+Current Win64 build: **v0.4.19** - [`statghost-v0.4.19-win64.zip`](https://github.com/jcfaria/statghost-releases/releases/tag/v0.4.19).
 
 | Area | Notes |
 |------|--------|

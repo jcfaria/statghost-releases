@@ -1,4 +1,7 @@
 # Objective: Illustrate the Fundamental Theorem of Calculus with shaded areas.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Needs package: ggplot2 (auto-install to user lib if missing).
 # Blank lines = sniper chunks. Keep ~4–5 clear examples (not a mega Arm paste).
 
@@ -78,18 +81,18 @@ g_ftc <- function(f,
   invisible(p)
 }
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 oldpar <- par(no.readonly = TRUE)
 par(mfrow = c(1, 1))
 
-# --- example 1: linear (triangle under y = x) ---
+#.. example 1: linear (triangle under y = x)
 f <- function(x) x
 F_antideriv <- function(x) 1 / 2 * (x^2)
 
 g_ftc(f, F_antideriv)
 
-# --- example 2: quadratic ---
+#.. example 2: quadratic
 f <- function(x) x^2
 F_antideriv <- function(x) 1 / 3 * (x^3)
 
@@ -98,7 +101,7 @@ g_ftc(f,
       1,
       3)
 
-# --- example 3: sine — signed / net area over [0, 2π] vs [0, π] ---
+#.. example 3: sine — signed / net area over [0, 2π] vs [0, π]
 f <- function(x) sin(x)
 F_antideriv <- function(x) -cos(x)
 
@@ -110,7 +113,7 @@ g_ftc(f,
       F_antideriv,
       x2 = pi)
 
-# --- example 4: standard normal P(-1 < Z < 1) ≈ 0.68 ---
+#.. example 4: standard normal P(-1 < Z < 1) ≈ 0.68
 f <- function(x) dnorm(x,
                        mean = 0,
                        sd = 1)
@@ -124,7 +127,7 @@ g_ftc(f,
       x2 = 1,
       lim_x = c(-3, 3))
 
-# --- example 5: heights N(170, 10), P(160 < X < 180) ---
+#.. example 5: heights N(170, 10), P(160 < X < 180)
 f <- function(x) dnorm(x,
                        mean = 170,
                        sd = 10)

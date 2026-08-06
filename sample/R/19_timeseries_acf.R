@@ -1,4 +1,7 @@
 # Objective: Seasonal time series overview plus ACF / PACF panels.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 
 set.seed(19)
 t <- 1:120
@@ -13,7 +16,7 @@ c(start = start(tsy)[1],
   frequency = frequency(tsy),
   n = length(tsy))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # overview
 plot(tsy,

@@ -1,4 +1,7 @@
 # Objective: Deeper Statistics stdlib — std, quantile, cor (+ optional hist).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Blank lines = sniper chunks.
 
 using Statistics
@@ -11,7 +14,7 @@ y = [2.0, 4.0, 6.0, 8.0, 10.0]
 @assert cor(x, y) ≈ 1.0
 println("PASS 14_statistics_base")
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # optional visual of x
 try

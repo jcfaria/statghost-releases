@@ -1,4 +1,7 @@
 # Objective: Boxplot of three seeded groups (compare spreads).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Leave the figure open for Agg → Plot panel capture.
 
 import random
@@ -21,7 +24,7 @@ print(
     round(statistics.stdev(g3), 3),
 )
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 import matplotlib
 

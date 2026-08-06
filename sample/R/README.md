@@ -4,7 +4,7 @@ Copy any file’s contents (or open and Ctrl+A / Ctrl+C) with **Arm** on.
 Blank lines separate sniper **chunks**. Prefer progressive eval for overlays.
 
 **Two-stage (text → graphic):** scripts with both console I/O and plots put
-all meaningful text first, then `# --- GRAPHIC OUTPUT ---`, then graphics.
+all meaningful text first, then `#. --- GRAPHIC OUTPUT ---`, then graphics.
 ST can split on that marker. Intentional-error sample (`07_error.R`) has no
 marker.
 
@@ -45,6 +45,7 @@ marker.
 | `33_bar_pie.R` | yes | bar proportions + pie |
 | `34_pairs.R` | yes | `pairs` scatter matrix |
 | `35_density_rug.R` | yes | density + rug |
+| `36_highlighter_notes.R` | no | HG SampleText ids: Note1/2/3 vs Comment |
 
 Seeded where randomness matters so PNG/PDF dual-draw stay aligned.
 
@@ -54,12 +55,13 @@ Deps: `11` → **fdth**; `13` → **ggplot2**; `15` → **magrittr** (auto-insta
 ## Style
 
 Teaching / didactic REPL is the primary purpose. Each sample starts with
-`# Objective: …`; short EN comments for non-obvious steps.
+`# Objective: …`; then didactic highlighter Notes (`#.` / `#..` / `#...`);
+short EN comments for non-obvious steps.
 
 - **Blank lines = sniper chunks** (Arm → Ctrl+C progressive eval).
 - Break calls with **>2 arguments** at commas (`plot`, `abline`, `lines`,
   `text`, `segments`, `legend`, …).
-- Mixed text+plot: `# --- GRAPHIC OUTPUT ---` between stages.
+- Mixed text+plot: `#. --- GRAPHIC OUTPUT ---` between stages.
 - Plot titles include the script number (`main = "sample NN — …"`).
 - If the script changes `par()` / `layout()`, wrap with
   `oldpar <- par(no.readonly = TRUE)` … `par(oldpar)` (not only

@@ -1,4 +1,7 @@
 # Objective: Scatterplot matrix (pairs) for a small correlated multivariate sample.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 
 set.seed(34)
 n <- 60
@@ -10,7 +13,7 @@ df <- data.frame(x1, x2, x3)
 round(cor(df), 2)
 summary(df)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 pairs(df,
       pch = 16,

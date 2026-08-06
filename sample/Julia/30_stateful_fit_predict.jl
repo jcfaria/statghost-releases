@@ -1,4 +1,7 @@
 # Objective: Stateful mini-model — fit a line, then predict; optional plot.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Progressive REPL: coefficients remain for the next clipboard chunk.
 # Blank lines = sniper chunks. No blanks inside function bodies.
 
@@ -37,7 +40,7 @@ println("sse=", round(sse; digits = 4))
 @assert sse < 20
 println("PASS 30_stateful_fit_predict")
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # Optional Plots.jl overlay (Plot panel / headless)
 try

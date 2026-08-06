@@ -1,4 +1,7 @@
 # Objective: Optional Plots.jl kernel-style density via histogram + PDF overlay.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # No display(): STATghost captures PNG via savefig; SKIP if Plots missing.
 
 using Random
@@ -9,7 +12,7 @@ z = randn(200)
 println("n=", length(z), " mean=", round(mean(z); digits = 4),
         " std=", round(std(z); digits = 4))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 try
     ENV["GKSwstype"] = "100"

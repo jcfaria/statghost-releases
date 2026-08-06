@@ -1,4 +1,7 @@
 # Objective: Design matrix rank via QR, then residual-vs-fitted diagnostics.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Blank lines = sniper chunks. Overlays stay with plot().
 
 set.seed(21)
@@ -20,7 +23,7 @@ c(n = nrow(MM),
   p = ncol(MM),
   rank = qr(MM)$rank)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # residual vs fitted (+ zero line and smoother)
 plot(fitted(fit),

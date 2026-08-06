@@ -14,17 +14,20 @@ Layout:
 ## Golden rule (when adding a script)
 
 1. `# Objective: …` (EN) first line.
-2. Short EN step comments where needed.
-3. Blank lines = intentional sniper **chunks** (not padding inside compounds).
-4. Readable calls (R: break at commas if **>2** args; also `abline`/`lines`).
-5. Progressive clarity over golf; optional deps print `SKIP …`.
-6. End with a visible **`PASS <stem>`** (or intentional **`FAIL …`** / **`SKIP …`**).
-7. Multi-figure scripts: blank line **between** figures; keep `abline`/`lines`/
+2. Didactic highlighter Notes right after Objective:
+   `#.` / `#..` / `#...` (Note1 / Note2 / Note3) — visible in CudaText and
+   STATghost Console; they never execute.
+3. Short EN step comments where needed.
+4. Blank lines = intentional sniper **chunks** (not padding inside compounds).
+5. Readable calls (R: break at commas if **>2** args; also `abline`/`lines`).
+6. Progressive clarity over golf; optional deps print `SKIP …`.
+7. End with a visible **`PASS <stem>`** (or intentional **`FAIL …`** / **`SKIP …`**).
+8. Multi-figure scripts: blank line **between** figures; keep `abline`/`lines`/
    `points` in the **same** chunk as their `plot()`/`hist()` (no orphan overlays).
-8. Mixed text + plot: put all meaningful text I/O first, then exactly one
-   `# --- GRAPHIC OUTPUT ---` marker, then all graphics (ST two-stage).
-9. **Every plot title includes `sample NN — …`** (R / Python / Julia).
-10. Update that language’s README table.
+9. Mixed text + plot: put all meaningful text I/O first, then exactly one
+   `#. --- GRAPHIC OUTPUT ---` marker, then all graphics (ST two-stage).
+10. **Every plot title includes `sample NN — …`** (R / Python / Julia).
+11. Update that language’s README table.
 
 Detail: `.cursor/rules/statghost-didactic-repl.mdc` · D23 in `w_todo`.
 

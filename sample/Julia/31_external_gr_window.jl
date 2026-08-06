@@ -1,4 +1,7 @@
 # Objective: Force an *external* GR / GKS QtTerm window (cannot embed in Plot panel).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Needs: Plots.jl + Settings → Session → Julia → Show GR plot window, then Arm.
 # With headless GR (default), prints SKIP (TF-safe). Blank lines = sniper chunks.
 
@@ -7,7 +10,7 @@ ys = sin.(x)
 println("n=", length(x), " y_extrema=", extrema(ys))
 println("GKSwstype=", get(ENV, "GKSwstype", "<unset>"))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # Settings guard (GKSwstype=100 = headless PNG path)
 if get(ENV, "GKSwstype", "") == "100"

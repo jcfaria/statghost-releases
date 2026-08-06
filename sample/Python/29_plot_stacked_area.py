@@ -1,4 +1,7 @@
 # Objective: Stacked area chart with an annotation arrow.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Leave the figure open for Agg → Plot panel capture.
 
 # three series over years
@@ -9,7 +12,7 @@ c = [5, 6, 6, 7, 8, 9, 10, 11]
 totals = [ai + bi + ci for ai, bi, ci in zip(a, b, c)]
 print("years=", years[0], "..", years[-1], "final_total=", totals[-1])
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 import matplotlib
 

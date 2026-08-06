@@ -1,4 +1,7 @@
 # Objective: Filled contour of a smooth 2D surface (two bumps).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Blank lines = sniper chunks.
 
 set.seed(22)
@@ -22,7 +25,7 @@ c(nx = length(x),
   z_min = min(z),
   z_max = max(z))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 filled.contour(x,
                y,

@@ -1,4 +1,7 @@
 # Objective: Tour modern R operators (base pipe / lambda / raw / placeholder → magrittr).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Needs: R >= 4.1 for |> and \( ); R >= 4.2 for _ ; magrittr (auto-install).
 # One blank-delimited block per operator — Arm whole file or one block.
 

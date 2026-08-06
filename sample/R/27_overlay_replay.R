@@ -1,4 +1,7 @@
 # Objective: Base plot with lowess + highlight points (one figure, one chunk).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Keep overlays with plot() so progressive Arm never hits "plot.new has not
 # been called yet". (Product still supports `.STATghost` replay when chunks split.)
 # Blank lines = sniper chunks.
@@ -12,7 +15,7 @@ c(n = length(x),
   mean_y = mean(y),
   sd_y = sd(y))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 plot(x,
      y,

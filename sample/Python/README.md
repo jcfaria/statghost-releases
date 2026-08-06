@@ -5,7 +5,7 @@ Progressive complexity for the **stateful** sniper (Arm → Ctrl+C), not one-sho
 **Premise (D21):** system Python on PATH (`python` / `python3` / `py -3`). Stdlib-first; **matplotlib** for plots; optional **numpy**.
 
 **Two-stage (text → graphic):** mixed scripts print summaries first, then
-`# --- GRAPHIC OUTPUT ---`, then matplotlib (Agg; leave fig open). ST can
+`#. --- GRAPHIC OUTPUT ---`, then matplotlib (Agg; leave fig open). ST can
 split on that marker. Intentional-error sample (`09_exceptions.py`) has no
 marker.
 
@@ -45,6 +45,7 @@ marker.
 | `32_bar_pie.py` | yes | bar + pie |
 | `33_boxplot.py` | yes | three-group boxplot |
 | `34_hexbin.py` | yes | hexbin density |
+| `35_highlighter_notes.py` | no | HG SampleText ids: Note1/2/3 vs Comment |
 
 Run assert-style checks (non-plot / non-error) from repo root:
 
@@ -57,12 +58,13 @@ Seeded where randomness matters. Plot scripts must **leave the figure open** for
 ## Style
 
 Teaching / didactic REPL is the primary purpose (golden rule: interleaved I/O
-students can read aloud). Each sample starts with `# Objective: …`; short EN
-comments; PEP-ish spacing.
+students can read aloud). Each sample starts with `# Objective: …`; then
+didactic highlighter Notes (`#.` / `#..` / `#...`); short EN comments; PEP-ish
+spacing.
 
 - **Do not put blank lines inside `class` / `def` / `if-elif-else` / `try`
   bodies** — the progressive sniper REPL treats a blank as “end compound”.
-- Mixed text+plot: `# --- GRAPHIC OUTPUT ---` between stages.
+- Mixed text+plot: `#. --- GRAPHIC OUTPUT ---` between stages.
 - **Every plot title includes `sample NN — …`** (`set_title` / `suptitle`).
 - Leave figures open for Agg → Plot panel; external-window samples (`31`) use
   Settings + `PASS`/`SKIP` guards.

@@ -1,4 +1,7 @@
 # Objective: Distinguish models linear in parameters (lm) from nonlinear (nls).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Uses BOD and a self-starting asymptotic model. Blank lines = sniper chunks
 # (one figure per chunk; overlays stay with their plot).
 
@@ -49,7 +52,7 @@ summary(fm3)
 coef(fm3)
 fm3
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 oldpar <- par(no.readonly = TRUE)
 par(mfrow = c(1, 1))

@@ -74,7 +74,7 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="brand">STATghost · v0.4.15</p>
+      <p class="brand">STATghost · v0.4.19</p>
       <h1>Quick manual</h1>
       <p class="lead">Copy → local R / Python / Julia → text and plot. A sniper, not an IDE.</p>
       <div class="lights" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div>
@@ -166,7 +166,12 @@
       <h2>Panel</h2>
       <ul>
         <li><strong>Console</strong> — read-only <strong>ATSynEdit</strong> with Cuda
-            lexers from the <code>lexer/</code> folder beside the EXE (R / Python / Julia).
+            lexers from the <code>lexer/</code> folder beside the EXE (R / Python /
+            Julia; packs come from the private companion
+            <code>statghost-cudatext</code> at build time).
+            R / Python / Julia support Notes <code>#.</code> /
+            <code>#..</code> / <code>#...</code> (R also has Programing /
+            Datasets in the slim pack).
             <kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> — Console ↔ Plot.
             The active tab highlight follows the page after eval focus
             (Auto / Console / Plot).
@@ -186,6 +191,8 @@
             (brand | Set | Arm | Kill | Clear); floating bar hidden while the panel
             is open. Horizontal magnet: shared left edge; vertical: tops aligned,
             rail to the left of the panel.</li>
+        <li><strong>Always on top</strong> — Main traffic bar and Panel share one
+            toggle (default on). Explorer has its own Top/Norm control.</li>
         <li>After eval, focus is <strong>Auto</strong> by default: <strong>Plot</strong> if this
             eval drew graphics, else <strong>Console</strong>
             (Set → Behavior to force Console, Plot, or return to source).</li>
@@ -201,6 +208,14 @@
     </section>
 
     <section>
+      <h2>Window placement</h2>
+      <p>Main, Panel, and Explorer store screen bounds in
+         <code>%LOCALAPPDATA%/STATghost/window_geometry.json</code>
+         (separate from prefs). Positions update live on move/resize and restore
+         across sessions, including a float Explorer on a secondary monitor.</p>
+    </section>
+
+    <section>
       <h2>Explorer (R)</h2>
       <p>Object browser for the active R session (VP-EX-1). Requires
          <code>library/STATghostcom_R/STATghostcom</code> beside the EXE
@@ -208,10 +223,15 @@
       <ul>
         <li><strong>Open / hide:</strong> traffic-bar <strong>Expl</strong> light,
             Unidos chrome button, or <kbd>Ctrl+E</kbd> (Set → Hotkeys).</li>
-        <li><strong>Dock:</strong> <strong>L</strong> | <strong>R</strong>
+        <li><strong>Dock:</strong> classroom default <strong>Inside</strong>
+            (split the Console tab only; Plot full-width) with
+            <strong>L</strong>|<strong>R</strong> relative to the editor
+            (<code>explorer_inside_side</code> / <code>explorer_inside_width</code>).
+            Or <strong>L</strong> | <strong>R</strong>
             (<code>dock-left</code>/<code>dock-right</code>) beside the main window,
             or <strong>Float</strong>. <strong>Top</strong>/<strong>Norm</strong>
-            stay-on-top (default Top); <strong>Auto</strong>/<strong>Fill</strong> height
+            stay-on-top apply to External/Float only (Inside never topmost;
+            default Top); <strong>Auto</strong>/<strong>Fill</strong> height
             (<strong>Fill</strong> keeps the Explorer status bar inside the work area);
             window size and Environment pane height are remembered.</li>
         <li><strong>Environment:</strong> <code>search()</code> list with
@@ -258,7 +278,9 @@
             Capture default stays <kbd>Ctrl+C</kbd>; optional alternative chord
             (Copy in source → eval; often current line with no selection).
             <kbd>Ctrl+L</kbd> clears Console text only; toolbar Clear still wipes
-            console + plot. Alt+Space is rejected (Windows system menu).</li>
+            console + plot. While Settings is open, OS global hotkeys are suspended
+            so <strong>Record</strong> can capture the same chords (e.g. Ctrl+L).
+            Alt+Space is rejected (Windows system menu).</li>
         <li><strong>Shortcuts</strong> — Console-local (not OS RegisterHotKey):
             <kbd>Ctrl+Enter</kbd> re-evals the input cell at the caret;
             <kbd>C+Up</kbd>/<kbd>C+Down</kbd> (hold letter C, not Ctrl) jump previous/next
@@ -281,13 +303,18 @@
         <li><kbd>Ctrl+Alt+R</kbd> — Arm / Idle (default; Record under Set → Hotkeys).</li>
         <li><kbd>Ctrl+C</kbd> — capture via system Copy (when Armed).</li>
         <li>Optional Capture alternative (Record under Set → Hotkeys) — Copy in the foreground
-            app, then eval (current line without selection in many editors).</li>
+            app, then eval (current line without selection in many editors).
+            Active <strong>only while Armed</strong> (Idle does not register or fire
+            send/eval chords).</li>
         <li><kbd>Ctrl+Alt+F</kbd> — Focus mode toggle (default).</li>
-        <li><kbd>Ctrl+L</kbd> — Clear Console text only (default; R console).</li>
+        <li><kbd>Ctrl+L</kbd> — Clear Console text only (default; R console habit).
+            The Console ATSynEdit keymap does <strong>not</strong> keep the stock Ctrl+L
+            “extend selection by line” binding (would steal Clear).</li>
         <li><kbd>Ctrl+E</kbd> — show / hide Explorer (default).</li>
         <li>Brand menu <strong>OS global hotkeys</strong> — when off, Arm / alt-capture /
             focus / clear / Explorer chords are unregistered (<code>HK: off</code>). Ctrl+C sniper
-            while Armed still works.</li>
+            while Armed still works. Opening Settings also suspends those OS chords until
+            the dialog closes (so Record can hear them).</li>
       </ul>
     </section>
 
@@ -337,7 +364,7 @@
       </ul>
     </section>
 
-    <footer>STATghost v0.4.15 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
+    <footer>STATghost v0.4.19 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
   </div>
 </body>
 </html>

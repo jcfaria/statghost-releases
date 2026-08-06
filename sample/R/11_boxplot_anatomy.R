@@ -1,4 +1,7 @@
 # Objective: Annotated boxplot anatomy (quartiles, IQR, fences) beside a histogram.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Needs package: fdth. Blank lines = sniper chunks (setup / box / labels / hist).
 
 # --- setup: sample + Tukey fences ---
@@ -34,7 +37,7 @@ c(min.no = min.no,
   out.low = out.low,
   out.upp = out.upp)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # --- box panel: layout + bare boxplot ---
 oldpar <- par(no.readonly = TRUE)

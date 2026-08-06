@@ -7,7 +7,7 @@ one-shot `julia script.jl`. Valid today under system **`julia`** (lab: 1.12.6).
 **Distributions.jl** / **DifferentialEquations.jl** optional (SKIP if missing).
 
 **Two-stage (text → graphic):** print summaries first, then
-`# --- GRAPHIC OUTPUT ---`, then `try` / `using Plots` / draw / `PASS` or
+`#. --- GRAPHIC OUTPUT ---`, then `try` / `using Plots` / draw / `PASS` or
 `SKIP`. ST can split on that marker. Dual PASS (text + optional plot) is OK
 (e.g. `14`, `27`, `30`).
 
@@ -52,6 +52,7 @@ Planning: `w_todo/w_pt/br/07_sap_julia_repl.txt` · `08_cpr_julia_repl.txt`
 | `35_plot_density.jl` | yes* | hist PDF + normal overlay |
 | `36_plot_pie.jl` | yes* | Plots.jl pie |
 | `37_plot_annotate_bar.jl` | yes* | annotated bar |
+| `38_highlighter_notes.jl` | no | HG SampleText ids: Note1/2/3 vs Comment |
 
 \* optional package — prints `SKIP …` when missing (not a hard fail).
 `ext*` = external interactive window (not Plot panel); needs the matching
@@ -68,11 +69,12 @@ STATghost **SJ** (`--sj`) runs the Julia lane alone; **ST** (`--st` / `--tf-samp
 ## Style
 
 Teaching / didactic REPL is the primary purpose. Each sample starts with
-`# Objective: …`; short EN comments for non-obvious steps.
+`# Objective: …`; then didactic highlighter Notes (`#.` / `#..` / `#...`);
+short EN comments for non-obvious steps.
 
 - **Blank lines = sniper chunks** — **no blank lines inside** `function` /
   `macro` / `try` bodies (progressive REPL treats blank as end-of-compound).
-- Mixed text+plot: `# --- GRAPHIC OUTPUT ---` between stages; keep `try` /
+- Mixed text+plot: `#. --- GRAPHIC OUTPUT ---` between stages; keep `try` /
   Plots in the graphic section when possible.
 - **Every plot title includes `sample NN — …`** (Plots.jl `title=`).
 - Break long kwargs / multi-arg calls across lines.

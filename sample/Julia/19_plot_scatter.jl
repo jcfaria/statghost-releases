@@ -1,4 +1,7 @@
 # Objective: Optional Plots.jl scatter with a trend line.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # No display(): STATghost captures PNG via savefig; avoid GKS QtTerm.
 
 using Random
@@ -9,7 +12,7 @@ x = randn(80)
 y = 0.5 .* x .+ 0.1 .* randn(80)
 println("n=", length(x), " corr≈", round(cor(x, y); digits = 4))
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 try
     ENV["GKSwstype"] = "100"

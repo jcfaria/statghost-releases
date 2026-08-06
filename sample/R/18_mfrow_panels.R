@@ -1,4 +1,7 @@
 # Objective: One PNG with four base-graphics panels via par(mfrow).
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Light chunk comments; keep as one figure for TF capture.
 
 set.seed(18)
@@ -10,7 +13,7 @@ c(n = length(z),
   sd = sd(z),
   skew_hint = mean((z - mean(z))^3) / sd(z)^3)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 oldpar <- par(no.readonly = TRUE)
 

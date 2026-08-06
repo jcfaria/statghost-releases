@@ -1,4 +1,7 @@
 # Objective: Correlation heatmap via image() for a correlated multivariate sample.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Blank lines = sniper chunks.
 
 set.seed(23)
@@ -11,7 +14,7 @@ colnames(Z) <- paste0("V", 1:p)
 C <- cor(Z)
 round(C, 2)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 # heatmap (row flip so V1 is at the top)
 image(1:p,

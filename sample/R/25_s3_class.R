@@ -1,4 +1,7 @@
 # Objective: Minimal S3 class with custom print, summary, and plot methods.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Blank lines = sniper chunks.
 
 # constructor
@@ -56,7 +59,7 @@ p <- statg_point(3, 4, "A")
 p
 summary(p)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 plot(p)
 message("PASS 25_s3_class")

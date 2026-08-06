@@ -1,4 +1,7 @@
 # Objective: Closures with <<- and lexical scope; plot factory outputs.
+#. Note_1 - Arm / Ctrl+C one chunk at a time (highlighter Note1).
+#.. Note_2 - blank lines are sniper chunks, not noise (highlighter Note2).
+#... Note_3 - Notes never execute; they only colour the transcript (Note3).
 # Blank lines = sniper chunks. Overlay lines/legend stay with plot().
 
 # counter factory (mutable state via <<-)
@@ -30,7 +33,7 @@ y2 <- vapply(xs, f2, numeric(1))
 y5 <- vapply(xs, f5, numeric(1))
 rbind(y2 = y2, y5 = y5)
 
-# --- GRAPHIC OUTPUT ---
+#. --- GRAPHIC OUTPUT ---
 
 plot(xs,
      y2,
