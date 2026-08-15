@@ -34,7 +34,7 @@ import matplotlib.pyplot as plt
 fig, ax = plt.subplots()
 ax.boxplot(
     [g1, g2, g3],
-    labels=["g1", "g2", "g3"],
+    tick_labels=["g1", "g2", "g3"],
     patch_artist=True,
 )
 ax.set_title("sample 33 — boxplot")

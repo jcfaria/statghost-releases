@@ -74,7 +74,7 @@
 <body>
   <div class="wrap">
     <header>
-      <p class="brand">STATghost · v0.4.19</p>
+      <p class="brand">STATghost · v0.4.27</p>
       <h1>Quick manual</h1>
       <p class="lead">Copy → local R / Python / Julia → text and plot. A sniper, not an IDE.</p>
       <div class="lights" aria-hidden="true"><i class="g"></i><i class="a"></i><i class="r"></i></div>
@@ -85,7 +85,11 @@
       <ol>
         <li>Unzip so <code>statghost.exe</code>, <code>statghost_rhost.exe</code>,
             <code>lexer/</code>, and <code>library/</code> stay together
-            (rhost only for R.dll; <code>library/</code> for Explorer companion).</li>
+            (rhost only for R.dll; <code>library/</code> for Explorer companion).
+            Linux gtk2: unpack the <code>.tar.gz</code> and run
+            <code>./statghost</code> (same sidecars: <code>lexer/</code>,
+            <code>library/</code>, <code>statghost_py_repl.py</code>,
+            <code>statghost_jl_repl.jl</code>).</li>
         <li>Run <code>statghost.exe</code> (toolbar, top-right).</li>
         <li>Under <strong>Set → Session</strong>, pick <strong>R</strong>, <strong>Python</strong>, or
             <strong>Julia</strong> (and path if needed).</li>
@@ -109,6 +113,14 @@
         <li><strong>Clear</strong> — clear console and plot.</li>
         <li><strong>Unite/Split</strong> — Separados ↔ Unidos (rightmost on the
             panel tab bar; switch glyph).</li>
+        <li><strong>Background-progress gauge</strong> — a slim hairline strip
+            along the toolbar's bottom edge, always visible from the main
+            window regardless of which dialog is open. Idle = fully hidden;
+            lights up (determinate % or an indeterminate sweep) during CRAN
+            catalog / mirror refresh, Install, or Update, then briefly flashes
+            "done" before auto-collapsing. Text status stays on each control's
+            own hint, same as before — the gauge is a second always-on-screen
+            signal, not a replacement.</li>
       </ul>
       <p class="note">Click the <strong>icon</strong> → Help / About / <strong>OS global hotkeys</strong> / Quit.
         Status shows engine badge and <code>HK: on|off</code>. Drag the bar by the background.
@@ -120,7 +132,22 @@
       <ul>
         <li>Under <strong>Set → Session</strong> (Path | Options) pick the language.</li>
         <li><strong>R:</strong> home (empty = newest); Use {Rterm.exe | R.dll}.
-            R.dll uses sidecar <code>statghost_rhost.exe</code> (GUI never loads R.dll).</li>
+            R.dll uses sidecar <code>statghost_rhost.exe</code> (GUI never loads R.dll).
+            <strong>CRAN mirror (repos)</strong> — text field, default
+            <code>https://cloud.r-project.org</code>; sent as
+            <code>options(repos=)</code> at session start and passed explicitly
+            to every <code>install.packages()</code> call, so a session is
+            never left on R's own unset <code>"@CRAN@"</code> sentinel. Applies
+            live to an already-Armed session. Also settable from Explorer's
+            <strong>Choose CRAN mirror</strong> picker (see Explorer).
+            <strong>Update packages that need compilation (requires Rtools)</strong>
+            — checkbox, off by default. Some CRAN packages, when their Windows
+            binary lags the just-published source release, can only be updated
+            by compiling from source, which needs Rtools installed. Leave this
+            off (the safe default) to skip such packages instead of risking a
+            failed compile on a machine without Rtools; a hint under the
+            checkbox reports whether an Rtools install was detected on this PC.
+            Turn it on only if Rtools is installed.</li>
         <li><strong>Python:</strong> interpreter path; Options — Matplotlib window, prefetch imports.</li>
         <li><strong>Julia:</strong> path (empty = discover / juliaup); Options — show GR
             window when relevant. Plot panel PNGs use the same high-res size class as
@@ -153,12 +180,33 @@
             CudaText, …), Copy with no selection sends the <strong>current line</strong>
             — step a script line by line without selecting. If the source app does
             nothing without a selection, select text as usual (or use <kbd>Ctrl+C</kbd>
-            when Armed).</li>
+            when Armed). An optional CudaText plugin (VP-EB-1 / EB-1b) lives in the
+            public companion
+            <a href="https://github.com/jcfaria/statghost-cudatext">github.com/jcfaria/statghost-cudatext</a>
+            (<code>plugins/cuda_statghost</code>). Copy that folder into CudaText
+            <code>py/</code> (or run <code>bash plugins/install_lab.sh</code> in
+            the clone) and restart CudaText. It sends the current
+            <strong>selection</strong> or, with an empty selection, the
+            complete <strong>statement</strong> at the caret (brackets,
+            operators, unbraced R <code>if</code> body) into the Armed
+            clipboard path. Toolbar + side tab: Config, Arm/Idle,
+            Start/Quit, Send, Source, Clear. <strong>Source</strong> writes
+            the buffer to shared TEMP slot <code>.paths[4]</code>
+            (STATghostcom, TinnRcom) and sends
+            <code>source(.paths[4], echo=…, spaced=FALSE, encoding=…)</code>
+            — no absolute editor path on the Console. Optional Config:
+            join editor wraps into one Console line (when off, STATghost reprints
+            the sent breaks and indent with <code>&gt;</code> / <code>+</code>);
+            Source echo/encoding.
+            STATghost stays the receiver (one interactive instance, D50).
+            After a send, the editor caret advances to the next code
+            line.</li>
         <li>After each eval, Console scroll can sit the new chunk at
             <strong>Middle</strong> (default), Top, or Bottom
             (Set → Behavior).</li>
-        <li>Meta notices go to the console meta stream; status bar shows engine badge + tips
-            (Console|Plot status font slightly larger than system default).</li>
+        <li>Meta notices go to the console meta stream; the Console|Plot status
+            strip sits at the <strong>bottom of the panel</strong> (engine badge,
+            tips, and Update gauge when a package batch is running).</li>
       </ul>
     </section>
 
@@ -167,7 +215,7 @@
       <ul>
         <li><strong>Console</strong> — read-only <strong>ATSynEdit</strong> with Cuda
             lexers from the <code>lexer/</code> folder beside the EXE (R / Python /
-            Julia; packs come from the private companion
+            Julia; packs come from the companion
             <code>statghost-cudatext</code> at build time).
             R / Python / Julia support Notes <code>#.</code> /
             <code>#..</code> / <code>#...</code> (R also has Programing /
@@ -210,9 +258,14 @@
     <section>
       <h2>Window placement</h2>
       <p>Main, Panel, and Explorer store screen bounds in
-         <code>%LOCALAPPDATA%/STATghost/window_geometry.json</code>
-         (separate from prefs). Positions update live on move/resize and restore
-         across sessions, including a float Explorer on a secondary monitor.</p>
+         <code>window_geometry.json</code> (separate from prefs, same config
+         folder — Portable <code>&lt;exe&gt;/data/</code> or AppData
+         <code>%LOCALAPPDATA%/STATghost</code>; see Config). Positions update
+         live on move/resize and restore across sessions, including a float
+         Explorer on a secondary monitor. On Linux (gtk2), restore clamps to
+         the monitor <strong>bounds</strong> when the reported work area is
+         not a small taskbar inset — a rotated/portrait second monitor keeps
+         the saved vertical placement (bottom half stays bottom half).</p>
     </section>
 
     <section>
@@ -226,30 +279,86 @@
         <li><strong>Dock:</strong> classroom default <strong>Inside</strong>
             (split the Console tab only; Plot full-width) with
             <strong>L</strong>|<strong>R</strong> relative to the editor
-            (<code>explorer_inside_side</code> / <code>explorer_inside_width</code>).
-            Or <strong>L</strong> | <strong>R</strong>
-            (<code>dock-left</code>/<code>dock-right</code>) beside the main window,
-            or <strong>Float</strong>. <strong>Top</strong>/<strong>Norm</strong>
+            (<code>explorer_inside_side</code> / <code>explorer_inside_width</code>;
+            new-install default width 210&nbsp;px, min 160). Toolbar:
+            <strong>Inside</strong> is its own button; <strong>Placement</strong>
+            is one parent for Left / Right / External (float).
+            <strong>Top</strong>/<strong>Norm</strong>
             stay-on-top apply to External/Float only (Inside never topmost;
             default Top); <strong>Auto</strong>/<strong>Fill</strong> height
             (<strong>Fill</strong> keeps the Explorer status bar inside the work area);
-            window size and Environment pane height are remembered.</li>
+            window size and Environment pane height are remembered
+            (default ~eight compact package rows).</li>
         <li><strong>Environment:</strong> <code>search()</code> list with
             <strong>.GlobalEnv</strong> always first. Click a row to list Objects in
-            that environment. <strong>Hid</strong>/<strong>All</strong> toggles hidden
+            that environment. Icons: Mirror, Install, Update, Load,
+            <strong>Detach</strong> (always-visible option in Settings → Behavior),
+            Info. <strong>Hid</strong>/<strong>All</strong> toggles hidden
             names (<code>all.names</code>).</li>
+        <li><strong>Install</strong>/<strong>Update packages</strong> (RStudio-style):
+            <strong>Install</strong> opens a typeahead search over a local CRAN
+            metadata cache (name + real <code>Title</code>, autocomplete as you type).
+            <strong>Update</strong> reuses the same typeahead + zebra StringGrid
+            family, scoped to already-installed packages with a newer cached CRAN
+            version — columns Package | Installed | Available | Title, footer
+            Total / Selected / Filter / Filter (%), All/None, and OK/Cancel
+            (Cancel is the Enter/Esc default; double-click toggles a row check
+            without applying the batch). Opening Update resyncs the installed
+            side of the cache from the live library so packages removed outside
+            STATghost do not linger. Update has no <strong>Refresh index</strong>
+            (Install still owns catalog refresh). Metadata lives in an
+            embedded SQLite3 cache (<code>packages.sqlite3</code>, same config
+            folder as prefs) and only refreshes on demand
+            (<strong>Refresh index</strong> in the Install dialog), never
+            automatically at startup. <strong>Refresh index</strong> runs the CRAN
+            fetch in a <strong>detached</strong> <code>Rscript</code> process (via
+            <code>tools::CRAN_package_db()</code>, CRAN-only — never fans out to
+            other configured repos) while the status bar shows “Indexing…”; the
+            active Armed R session is never used for the download and is never
+            Kill'd if a mirror is slow. Info/Load/Install/Update dialogs always
+            open next to the real Explorer window and its Packages toolbar button
+            — correct for every dock mode (Inside/Left/Right/Float), never
+            collapsing onto the small sniper toolbar. Load/Install/Update lists
+            render as a native grid with a plain bold dark header row
+            (theme-independent by design — readable against the fixed-row
+            background under every colour theme) and an optional zebra
+            (alternate-row) banding mode, toggled under Set → Appearance
+            (see Settings).</li>
+        <li><strong>Choose CRAN mirror:</strong> toolbar button beside the
+            package icons opens a picker listing every mirror from R's own
+            <code>utils::getCRANmirrors()</code> (Name/Country/City/URL), with
+            the recommended <code>0-Cloud</code> automatic-CDN mirror always
+            pinned at the top regardless of the filter text, plus "Open in
+            browser". The list is fetched by a detached <code>Rscript</code>
+            (never the interactive session) into a small SQLite cache
+            refreshed every 30 days or on demand; picking a mirror updates the
+            same CRAN-mirror field under Set → Session → R (see Engines) and
+            applies it live if a session is Armed.</li>
         <li><strong>Objects:</strong> exclusive <strong>Tree</strong> |
             <strong>Grid</strong> (Name / Type / Class / Dim; Name fills remaining
-            width). Filter by structural type (not S3/S4; icons match Tinn-R order)
+            width). Grid <strong>Type</strong> / <strong>Class</strong> show short
+            acronyms (<code>data.frame</code>→DF, <code>vector</code>→Vec,
+            <code>function</code>→Fn, <code>matrix</code>→Mat,
+            <code>array</code>→Arr, <code>list</code>→Lst,
+            <code>table</code>→Tab, <code>other</code>→Oth; class tokens such as
+            <code>integer</code>→Int, <code>numeric</code>→Num — unknown names
+            stay as-is). Hover a row (or the Explorer status strip) for the full
+            engine <code>type</code> / <code>class</code>. Filter by structural type (not S3/S4; icons match Tinn-R order)
             and optional Perl-compatible name regex (empty box; hint on hover;
             Enter or leave field stores MRU under
             <code>%LOCALAPPDATA%/STATghost/history_explorer_name_filter.json</code>;
-            Up/Down recall). Refresh after eval or the Refresh button.
-            <strong>Clear</strong> removes visible names from <code>.GlobalEnv</code>
-            (confirm).</li>
+            Up/Down recall). When Inside is narrow, eraser / Tree|Grid / Clear
+            wrap to a <strong>second</strong> row under the type+name filters.
+            Refresh after eval or the Refresh button. Object-action strip sits
+            at the <strong>bottom</strong> of Objects: Help · Example · Plot ·
+            Names · Structure · <strong>Content</strong> (parent: Head / Tail /
+            Print) · Summary. <strong>Clear</strong> removes visible names from
+            <code>.GlobalEnv</code> (confirm).</li>
         <li><strong>Companion:</strong> R package <code>STATghostcom</code> —
-            installed on first use into
-            <code>%LOCALAPPDATA%/STATghost/library</code>; helpers in exported
+            installed on first use into the active config folder's
+            <code>library</code> (Portable <code>&lt;exe&gt;/data/library</code>
+            or AppData <code>%LOCALAPPDATA%/STATghost/library</code>; see
+            Config); helpers in exported
             <code>.sg</code> (no <code>attach</code>). Licence <strong>MPL-2.0</strong>
             (same as STATghost; <code>LICENSE</code> beside the package sources).</li>
       </ul>
@@ -261,20 +370,40 @@
         <li><strong>Appearance</strong> — opacity; <strong>Toolbar</strong>
             orientation (Separados only — unmarked/disabled under Form único);
             <strong>Layout</strong> (<strong>Separados</strong> |
-            <strong>Form único</strong>, default Form único; same as Unite/Split);
+            <strong>Form único</strong>, default Form único; same as Unite/Split —
+            Toolbar and Layout sit side by side);
             <strong>Icon size</strong> (<strong>16 px</strong> /
-            <strong>24 px</strong> / <strong>32 px</strong>, default 24); theme.
-            Chrome uses flat monochrome glyphs tinted for the active theme
-            (traffic bar, Unidos strip, Plot bar, Explorer).</li>
+            <strong>24 px</strong> / <strong>32 px</strong>, default 24);
+            <strong>Colour theme</strong> — dropdown of all 6 themes
+            (Classic/Light/Dark/Contrast/Ocean/Forest) plus a
+            <strong>Next theme (Toggle)</strong> button that cycles them live,
+            one click at a time, wrapping back to Classic after Forest (same
+            live-preview/apply path as the dropdown — Cancel restores the
+            previous theme either way). On Linux (gtk2), native lists, combos,
+            and grid headers follow the STATghost theme (not the desktop GTK
+            theme). Chrome uses flat monochrome glyphs
+            tinted for the active theme (traffic bar, Unidos strip, Plot bar,
+            Explorer).
+            <strong>Package list rows</strong> — <strong>Off</strong> (default) or
+            <strong>Zebra (light)</strong>: alternate-row banding for the
+            Load/Install/Update package grids (Explorer), with a colour-swatch preview
+            next to each option; sits directly below the theme picker.</li>
         <li><strong>Behavior</strong> — after-eval focus (Auto / Console / Plot / source);
             Console scroll after eval (Middle / Top / Bottom);
             Console echo — optional echo of full-line <code>#</code> comments in
-            input chunks (default off).</li>
+            input chunks (default off);
+            <strong>Config / prefs location</strong> — <strong>Portable</strong>
+            (<code>&lt;exe&gt;/data/</code>, default on a genuine first run of the
+            zip) or <strong>AppData</strong>
+            (<code>%LOCALAPPDATA%/STATghost</code>, existing installs keep this
+            unless switched). Switching copies files across roots (never deletes
+            the originals) and takes effect after restarting STATghost.</li>
         <li><strong>Session</strong> — Path | Options per language;
             <kbd>Ctrl+Tab</kbd> / <kbd>Shift+Ctrl+Tab</kbd> cycle R|Python|Julia
             (does not change Active Use radios).</li>
         <li><strong>Hotkeys</strong> — OS global: Capture / Arm / Focus / Clear console via
-            <strong>Record</strong> and Clear|Reset.
+            <strong>Record</strong> and Clear|Reset (hardened so a stale OS-level
+            grab can never block re-recording the same chord).
             Capture default stays <kbd>Ctrl+C</kbd>; optional alternative chord
             (Copy in source → eval; often current line with no selection).
             <kbd>Ctrl+L</kbd> clears Console text only; toolbar Clear still wipes
@@ -346,6 +475,16 @@
             (Rterm.exe | R.dll | Python | Julia) —
             <code>--bench</code> → <code>w_log/benchmark.txt</code>;
             <code>powershell -File benchmark/run_bench.ps1</code>.</li>
+        <li><strong>Package dialog probes:</strong> <code>--dbg-pkg-pos</code> drives
+            the real <code>ShowModal</code> for Info/Load/Install/Update across all
+            four Explorer dock modes and captures each dialog's genuine on-screen
+            rect → <code>statg_pkgpos_report.txt</code>;
+            <code>--dbg-pkg-catalog</code> arms a real session, runs a live-CRAN
+            background Refresh, and checks the resulting SQLite cache (row count,
+            empty-title count) → <code>statg_pkgcatalog_report.txt</code>. Both are
+            permanent on-screen regression guards for this class of bug (offline
+            <code>--smoke</code> alone does not exercise real <code>ShowModal</code>
+            placement or a live CRAN fetch).</li>
       </ul>
     </section>
 
@@ -364,7 +503,7 @@
       </ul>
     </section>
 
-    <footer>STATghost v0.4.19 · guide D12 / VP-STATG-7 · prefs in %LOCALAPPDATA%\STATghost\</footer>
+    <footer>STATghost v0.4.27 · guide D12 / VP-STATG-7 · prefs in &lt;exe&gt;\data\ (portable, default) or %LOCALAPPDATA%\STATghost\</footer>
   </div>
 </body>
 </html>
